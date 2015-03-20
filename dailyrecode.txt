@@ -11,4 +11,6 @@ java常用网址：
 ---------------------------------------------------------------------------
 1.http://www.w3cschool.cc/java/java-basic-syntax.html
 2.http://wenku.baidu.com/view/321a2ff904a1b0717fd5ddfb.html
+3.github在windows下的安装配置：http://www.xbc.me/install-git-on-windows/
+
   
