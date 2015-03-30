@@ -2,6 +2,7 @@ package com.yunnex.myapp;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,39 +16,56 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.view.View.OnClickListener;
 
-public class MainActivity extends Activity {
-
+public class MainActivity extends Activity implements OnClickListener {
+	
+	private Button  Save;
+	private Button  Delete;
 	private EditText edit;
-	private Button button;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		edit = (EditText) findViewById(R.id.edit);
-		button = (Button) findViewById(R.id.button);
 		
+		Save = (Button) findViewById(R.id.save);
+		Delete = (Button) findViewById(R.id.delete);
+		edit = (EditText) findViewById(R.id.edit);
 		String inputText = load();
+		
+		Save.setOnClickListener(this);
+		Delete.setOnClickListener(this);
+		
 		if (!TextUtils.isEmpty(inputText)) {
 			edit.setText(inputText);
 			edit.setSelection(inputText.length());
 			Toast.makeText(this, "Restoring succeeded",Toast.LENGTH_SHORT).show();
 		}
 		
-		button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				String inputText = edit.getText().toString();
-				save(inputText);
-			}
-		});
 	}
-
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.save:
+			String inputText = edit.getText().toString();
+			save(inputText);
+			break;
+		case R.id.delete:
+			//Î±É¾³ý
+			String outputText = edit.getText().toString();
+			outputText = "";
+			save(outputText);
+			edit.setText(outputText);
+			Toast.makeText(this, "Delete succeeded",Toast.LENGTH_SHORT).show();
+			break;
+		default:
+			break;
+		}
+	}
 	//@Override
 	/*protected void onDestroy() {
 		super.onDestroy();
@@ -118,4 +136,5 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 }
