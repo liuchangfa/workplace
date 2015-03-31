@@ -55,10 +55,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			save(inputText);
 			break;
 		case R.id.delete:
-			//伪删除
-			String outputText = edit.getText().toString();
-			outputText = "";
-			save(outputText);
+			//伪删除-将文件内容读出来再写空字符回去
+			//modify(" ");
+			deleteFile("data\\data\\data\\com.yunnex.myapp\\files\\data");
+			String outputText = load();
 			edit.setText(outputText);
 			Toast.makeText(this, "Delete succeeded",Toast.LENGTH_SHORT).show();
 			break;
@@ -66,13 +66,28 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		}
 	}
-	//@Override
-	/*protected void onDestroy() {
-		super.onDestroy();
-		String inputText = edit.getText().toString();
-		save(inputText);
-	}*/
 	
+	//存储文件内容
+	public void save(String inputText) {
+		FileOutputStream out = null;
+		BufferedWriter writer = null;
+		try {
+			out = openFileOutput("data", Context.MODE_PRIVATE);
+			writer = new BufferedWriter(new OutputStreamWriter(out));
+			writer.write(inputText);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (writer != null) {
+					writer.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	//加载文件内容
 	public String load() {
 		FileInputStream in = null;
 		BufferedReader reader = null;
@@ -97,26 +112,32 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 		return content.toString();
 	}
-	
-	public void save(String inputText) {
-		FileOutputStream out = null;
-		BufferedWriter writer = null;
-		try {
-			out = openFileOutput("data", Context.MODE_PRIVATE);
-			writer = new BufferedWriter(new OutputStreamWriter(out));
-			writer.write(inputText);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (writer != null) {
-					writer.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+
+	//修改文件内容
+	public void  modify(String outputText){
+		String inputText = load();
+		inputText = outputText;
+		save(inputText);
 	}
+	
+	//删除文件
+	public  boolean deleteFile(String fileName) {  
+		 File file = new File(fileName);  
+		 // 如果文件路径所对应的文件存在，并且是一个文件，则直接删除  
+		 if (file.exists() && file.isFile()) {  
+			 if (file.delete()) {  
+				 System.out.println("删除单个文件" + fileName + "成功！");  
+				 return true;  
+			 } else {  
+				 System.out.println("删除单个文件" + fileName + "失败！");  
+				 return false;  
+			 }  
+		 } else {  
+			 System.out.println("删除单个文件失败：" + fileName + "不存在！");  
+			 return false;  
+		 }  
+	}
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
