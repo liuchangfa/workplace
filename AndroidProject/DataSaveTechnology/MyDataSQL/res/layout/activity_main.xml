@@ -18,6 +18,38 @@
 	android:layout_height="wrap_content"
 	android:background="#00009c"
 	android:text="@string/add"
-/>
+	/>
   
+	<Button
+		android:id="@+id/update_data"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#32cd32"
+		android:text="@string/update"
+	/>
+	
+	<Button
+		android:id="@+id/delete_data"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#ff00ff"
+		android:text="@string/delete"
+	/>
+
+	<Button
+		android:id="@+id/query_data"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#d98719"
+		android:text="@string/query"
+	/>
+	
+	<Button
+		android:id="@+id/replace_data"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#adeaea"
+		android:text="@string/replace"
+	/>
+	
 </LinearLayout>
