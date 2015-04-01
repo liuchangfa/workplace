@@ -24,13 +24,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	private Button deleteDate;
 	private Button queryDate;
 	private Button replaceDate;
+	int version = 2;//版本号
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		dbHelper = new MyDatabaseHelper(this, "BookStore.db", null, 2);
+		dbHelper = new MyDatabaseHelper(this, "BookStore.db", null, version);
 		//按键相关
 		createDatabase = (Button) findViewById(R.id.create_database);
 		addData = (Button) findViewById(R.id.add_data);
