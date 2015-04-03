@@ -88,7 +88,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			startService(startintent);
 			break;
 		case R.id.stop_alarm_receiver:
-			//启动定时任务
+			//停止定时任务
 			Intent stopintent = new Intent(this, LongRunningService.class);
 			stopService(stopintent);
 			break;	

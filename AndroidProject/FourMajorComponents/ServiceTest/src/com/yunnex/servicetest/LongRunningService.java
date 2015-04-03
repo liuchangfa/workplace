@@ -33,10 +33,14 @@ public class LongRunningService extends Service {
 		manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtTime, pi);
 		return super.onStartCommand(intent, flags, startId);
 	}
-	
+
 	@Override
 	public void onDestroy() {
-		super.onDestroy();
+		AlarmManager alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
+		Intent i = new Intent(this, AlarmReceiver.class);
+		PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
+		alarm.cancel(pi);//取消发送广播
+		super.onDestroy();//销毁本次服务
 		Log.d("LongRunningService", "onDestroy executed");
 	}
 	
