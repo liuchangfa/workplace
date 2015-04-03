@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">"ServiceTest "</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="start">Start Service</string>
+    <string name="stop">Stop Service</string>
+    <string name="bind">Bind Service</string>
+    <string name="unbind">Unbind Service</string>
+    <string name="intent">Start IntentService</string>
+    <string name="alarm">Start AlarmReceiver</string>
+    <string name="stop_alarm">Stop AlarmReceiver</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
