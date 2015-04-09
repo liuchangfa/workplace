@@ -1,6 +1,10 @@
 package com.yunnex.androidvolley;
 
+import java.io.IOException;
+
 import org.json.JSONObject;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -12,7 +16,6 @@ import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -27,7 +30,8 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	public static final String TAG = "MyTag";//定义tag标志
-	RequestQueue mQueue ; //创建一个RequestQueue对象
+	// Get a RequestQueue
+	RequestQueue mQueue ; 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +41,16 @@ public class MainActivity extends Activity {
 		final ImageView mImageView = (ImageView) findViewById(R.id.myImage);
 		final NetworkImageView networkImageView = (NetworkImageView) findViewById(R.id.network_image_view);  
 
-		mQueue = Volley.newRequestQueue(this);
-		
+		// Get a RequestQueue
+		mQueue = MySingleton.getInstance(this.getApplicationContext()).getRequestQueue();
 		//发送GET请求
-		String url ="http://www.baidu.com"; 
+		String url ="http://www.baidu.com"; //百度网页
 		StringRequest stringRequest = new StringRequest(Request.Method.GET,url,
 				new Response.Listener<String>() {
 					@Override
 					public void onResponse(String response) {
 						//mTextView.setText("Response is: "+ response.substring(0,500));
-						Log.d("TAG", response);
+						LogUtil.d("TAG", response);
 					}
 				}, new Response.ErrorListener() {
 					@Override
@@ -55,27 +59,19 @@ public class MainActivity extends Activity {
 						Log.e("TAG", error.getMessage(), error);
 					}
 				});
-		mQueue.add(stringRequest);//添加到请求队列，需要此功能，释放即可
-		
-		//发送POST请求,待解决
-				/*StringRequest stringRequest = new StringRequest(Request.Method.POST, url,Listener,errorListener) {
-					@Override
-					protected Map<String, String> getParams() throws AuthFailureError {
-						Map<String, String> map = new HashMap<String, String>();
-						map.put("params1", "value1");
-						map.put("params2", "value2");
-						return map;
-					}
-				};*/
-		
-		//请求JSON数据
-		String urlJson = "http://m.weather.com.cn/data/101010100.html";
+		//为请求绑定一个tag对象
+		stringRequest.setTag(TAG);
+		//添加到请求队列，需要此功能，释放即可
+		MySingleton.getInstance(this).addToRequestQueue(stringRequest);
+
+		//利用JsonObject请求JSON数据
+		String urlJson = "http://m.weather.com.cn/data/101010100.html";//天气数据
 		JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(urlJson, null,
 				new Response.Listener<JSONObject>() {
 					@Override
 					public void onResponse(JSONObject response) {
 						//mTextView.setText("Response is: "+ response.toString());
-						Log.d("TAG", response.toString());
+						LogUtil.d("TAG", response.toString());
 					}
 				}, new Response.ErrorListener() {
 					@Override
@@ -84,7 +80,69 @@ public class MainActivity extends Activity {
 						Log.e("TAG", error.getMessage(), error);
 					}
 				});
-		mQueue.add(jsonObjectRequest);//添加到请求队列，需要此功能，释放即可
+		//为请求绑定一个tag对象
+		jsonObjectRequest.setTag(TAG);
+		//添加到请求队列，需要此功能，释放即可
+		MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+		
+		//利用Json请求JSON数据
+		String urljson = "http://www.weather.com.cn/data/sk/101010100.html";
+		GsonRequest<Weather> gsonRequest = new GsonRequest<Weather>(urljson, Weather.class,
+				new Response.Listener<Weather>() {
+					@Override
+					public void onResponse(Weather weather) {
+						WeatherInfo weatherInfo = weather.getWeatherinfo();
+						LogUtil.d("TAG", "city is " + weatherInfo.getCity());
+						LogUtil.d("TAG", "temp is " + weatherInfo.getTemp());
+						LogUtil.d("TAG", "time is " + weatherInfo.getTime());
+					}
+				}, new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						Log.e("TAG", error.getMessage(), error);
+					}
+				});
+		//为请求绑定一个tag对象
+		gsonRequest.setTag(TAG);
+		//添加到请求队列，需要此功能，释放即可
+		MySingleton.getInstance(this).addToRequestQueue(gsonRequest);
+		
+		//请求XML数据
+		String urlXML = "http://flash.weather.com.cn/wmaps/xml/china.xml";
+		XMLRequest xmlRequest = new XMLRequest(urlXML,
+				new Response.Listener<XmlPullParser>() {
+					@Override
+					public void onResponse(XmlPullParser response) {
+						try {
+							int eventType = response.getEventType();
+							while (eventType != XmlPullParser.END_DOCUMENT) {
+								switch (eventType) {
+								case XmlPullParser.START_TAG:
+									String nodeName = response.getName();
+									if ("city".equals(nodeName)) {
+										String pName = response.getAttributeValue(0);
+										LogUtil.d("TAG", "pName is " + pName);
+									}
+									break;
+								}
+								eventType = response.next();
+							}
+						} catch (XmlPullParserException e) {
+							e.printStackTrace();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}, new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						Log.e("TAG", error.getMessage(), error);
+					}
+				});
+		//为请求绑定一个tag对象
+		xmlRequest.setTag(TAG);
+		//添加到请求队列，需要此功能，释放即可
+		MySingleton.getInstance(this).addToRequestQueue(xmlRequest);
 		
 		// ImageRequest加载网络图片的用法
 		String urlImage = "http://i.imgur.com/7spzG.png";
@@ -100,27 +158,25 @@ public class MainActivity extends Activity {
 						mImageView.setImageResource(R.drawable.ic_launcher);
 					}
 				});
-		//mQueue.add(imageRequest);//添加到请求队列，需要此功能，释放即可
+		//为请求绑定一个tag对象
+		imageRequest.setTag(TAG);
+		//添加到请求队列，需要此功能，释放即可
+		//MySingleton.getInstance(this).addToRequestQueue(imageRequest);
 		
 		//ImageLoader加载网络图片的用法
 		String urlimage = "http://img.my.csdn.net/uploads/201404/13/1397393290_5765.jpeg";
-		ImageLoader imageLoader = new ImageLoader(mQueue, new BitmapCache());
+		ImageLoader imageLoader = MySingleton.getInstance(this).getImageLoader();
 		ImageListener listener = ImageLoader.getImageListener(mImageView,
 				R.drawable.ic_launcher, R.drawable.myimage);
 		//imageLoader.get(urlimage, listener);//加载图片，需要此功能，释放即可
 		
 		//NetworkImageView加载网络图片的用法
 		String urlnet = "http://img.my.csdn.net/uploads/201404/13/1397393290_5765.jpeg";
-		ImageLoader imageLoaderNet = new ImageLoader(mQueue, new BitmapCache());
+		ImageLoader imageLoaderNet = MySingleton.getInstance(this).getImageLoader();
 		networkImageView.setDefaultImageResId(R.drawable.ic_launcher);
 		networkImageView.setErrorImageResId(R.drawable.myimage);
 		networkImageView.setImageUrl(urlnet,imageLoaderNet);//加载图片，需要此功能，释放即可
-		
-		//为请求绑定一个tag对象
-		stringRequest.setTag(TAG);
-		jsonObjectRequest.setTag(TAG);
-		imageRequest.setTag(TAG);
-		
+
 	}
 
 	@Override
