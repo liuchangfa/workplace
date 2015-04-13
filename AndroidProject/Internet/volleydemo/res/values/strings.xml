@@ -3,24 +3,22 @@
 
     <string name="app_name">Volley Demo</string>
     
+    <string name="post_request_text">post请求</string>
+    <string name="post_request">post请求</string>
+    
     <string name="data_request_text">数据请求</string>
     <string name="string_request">String请求</string>
-    <string name="json_request">Json请求</string>
+    <string name="jsonobject_request">JsonObject请求</string>
     
-    
+    <string name="custom_request_text">自定义请求</string>
+    <string name="xml_request">Xml请求 </string>
+    <string name="gson_request">Gson请求</string>
+      
     <string name="image_request_text">图片请求</string>
     <string name="image_request">Image请求</string>
     <string name="image_loader">ImageLoader</string>
     <string name="network_image_view">NetworkImageView</string>
     
-    <string name="custom_request_text">自定义请求</string>
-    <string name="xml_request">Xml请求 </string>
-    
-    <string name="post_request_text">post请求</string>
-    <string name="post_request">post请求</string>
-    
-    
-
     <string name="action_about">关于</string>
     <string name="about_text">
 	<![CDATA[

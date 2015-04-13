@@ -30,10 +30,10 @@ public class ImageRequestAdapter extends ImageBaseAdapter {
 	@Override
 	void setImage(final ImageView imageView, String imageUrl) {
 		
-		//è®¾ç½®ç©ºå›¾ç‰‡
+		//ÉèÖÃÄ¬ÈÏÍ¼Æ¬
 		imageView.setImageResource(R.drawable.ic_empty);
 		
-		//å–æ¶ˆè¿™ä¸ªImageViewå·²æœ‰çš„è¯·æ±‚
+	    //·¢³öĞÂµÄÇëÇóÖ®Ç°£¬ÏÈÈ¡ÏûÖ®Ç°µÄÇëÇó
 		VolleyUtil.getQueue(context).cancelAll(imageView);
 		
 		ImageRequest request=new ImageRequest(StringUtil.preUrl(imageUrl), new Listener<Bitmap>() {

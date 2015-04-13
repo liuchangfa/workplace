@@ -50,7 +50,7 @@ public class XmlRequestFragment extends Fragment {
 		adapter = new SimpleAdapter(getActivity(), weatherDataList, R.layout.fr_xml_request_list_item, keys, ids);
 		lvWeather.setAdapter(adapter);
 
-		// å‘èµ·è¯·æ±‚
+		// xmlÊı¾İÇëÇó
 		XmlRequest request = new XmlRequest(StringUtil.preUrl(Constants.DEFAULT_XML_REQUEST_URL),
 				new Listener<XmlPullParser>() {
 
@@ -69,7 +69,7 @@ public class XmlRequestFragment extends Fragment {
 
 										weatherMap.put("city", parser.getAttributeValue(2));
 										weatherMap.put("detail", parser.getAttributeValue(5));
-										weatherMap.put("temp", parser.getAttributeValue(7)+"â„ƒ åˆ° "+parser.getAttributeValue(6)+"â„ƒ");
+										weatherMap.put("temp", parser.getAttributeValue(7)+"¡æ ~ "+parser.getAttributeValue(6)+"¡æ");
 										weatherMap.put("wind", parser.getAttributeValue(8));
 
 										weatherDataList.add(weatherMap);
@@ -96,7 +96,7 @@ public class XmlRequestFragment extends Fragment {
 					}
 				});
 
-		// è¯·æ±‚åŠ ä¸ŠTag,ç”¨äºå–æ¶ˆè¯·æ±‚
+		//½«ÇëÇó¶¼°ó¶¨µ½Ö´ĞĞµÄActivityÉÏ
 		request.setTag(this);
 
 		VolleyUtil.getQueue(getActivity()).add(request);

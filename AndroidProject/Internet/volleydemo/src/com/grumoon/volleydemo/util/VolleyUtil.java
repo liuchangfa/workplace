@@ -9,7 +9,7 @@ public class VolleyUtil {
 
 	private volatile static RequestQueue requestQueue;
 
-	/** 杩斿洖RequestQueue鍗曚緥 **/
+	/** 实现单利模式建立请求队列 **/
 	public static RequestQueue getQueue(Context context) {
 		if (requestQueue == null) {
 			synchronized (VolleyUtil.class) {

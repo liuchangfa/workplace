@@ -2,8 +2,8 @@ package com.grumoon.volleydemo.util;
 
 public class StringUtil {
 	/**
-	 * 判断字符串是否为空
-	 * @param str 要判断的字符串
+	 * �ж��ַ��Ƿ�Ϊ��
+	 * @param str���ж��ַ�
 	 * @return
 	 */
 	public static boolean isEmpty(String str){
@@ -18,9 +18,8 @@ public class StringUtil {
 	
 	
 	/**
-	 * 处理url
-	 * 如果不是以http://或者https://开头，就添加http://
-	 * @param url 被处理的url
+	 * �Զ���ȫhttpЭ��
+	 * @param 
 	 * @return
 	 */
 	public static String preUrl(String url){

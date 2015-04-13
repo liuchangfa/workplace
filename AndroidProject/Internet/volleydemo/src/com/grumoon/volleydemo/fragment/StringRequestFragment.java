@@ -49,10 +49,10 @@ public class StringRequestFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				if (StringUtil.isEmpty(etUrl.getText().toString())) {
-					ToastUtil.showToast(getActivity(), "璇疯緭鍏ヨ姹傚湴鍧�");
+					ToastUtil.showToast(getActivity(), "请输入请求地址");
 					return;
 				}
-				//璇锋眰涔嬪墠锛屽厛鍙栨秷涔嬪墠鐨勮姹傦紙鍙栨秷杩樻病鏈夎繘琛屽畬鐨勮姹傦級
+				//每次发送新的请求之前，取消之前的所有请求，并清空显示区域
 				VolleyUtil.getQueue(getActivity()).cancelAll(this);
 				tvResult.setText("");
 
@@ -72,10 +72,9 @@ public class StringRequestFragment extends Fragment {
 
 							}
 						});
-				//璇锋眰鍔犱笂Tag,鐢ㄤ簬鍙栨秷璇锋眰
+				//将请求都绑定到执行的Activity上
 				request.setTag(this);
-				
-				
+								
 				VolleyUtil.getQueue(getActivity()).add(request);
 
 			}

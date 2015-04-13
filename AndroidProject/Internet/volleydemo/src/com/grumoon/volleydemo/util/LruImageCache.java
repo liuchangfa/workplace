@@ -5,7 +5,7 @@ import android.support.v4.util.LruCache;
 
 import com.android.volley.toolbox.ImageLoader.ImageCache;
 /**
- * LRU图片缓存
+ * 
  * @author grumoon
  *
  */

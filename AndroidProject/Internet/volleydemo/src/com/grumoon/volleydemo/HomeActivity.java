@@ -7,11 +7,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
 
 import com.grumoon.volleydemo.fragment.ImageLoaderFragment;
 import com.grumoon.volleydemo.fragment.ImageRequestFragment;
-import com.grumoon.volleydemo.fragment.JsonRequestFragment;
+import com.grumoon.volleydemo.fragment.JsonObjectRequestFragment;
+import com.grumoon.volleydemo.fragment.GsonRequestFragment;
 import com.grumoon.volleydemo.fragment.NetworkImageViewFragment;
 import com.grumoon.volleydemo.fragment.PostRequestFragment;
 import com.grumoon.volleydemo.fragment.StringRequestFragment;
@@ -23,18 +23,27 @@ public class HomeActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏标题栏
+		//requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏标题栏
 		setContentView(R.layout.app_main);
 		initView();
 
 	}
 
 	private void initView() {
+		// post按钮
+		findViewById(R.id.btn_post_request).setOnClickListener(this);
+		
 		// String按钮
 		findViewById(R.id.btn_string_request).setOnClickListener(this);
 
-		// Json按钮
-		findViewById(R.id.btn_json_request).setOnClickListener(this);
+		// JsonObject按钮
+		findViewById(R.id.btn_jsonobject_request).setOnClickListener(this);
+		
+		//Gson请求
+		findViewById(R.id.btn_gson_request).setOnClickListener(this);
+		
+		// Xml按钮
+		findViewById(R.id.btn_xml_request).setOnClickListener(this);
 		
 		// Image按钮
 		findViewById(R.id.btn_image_request).setOnClickListener(this);
@@ -45,12 +54,6 @@ public class HomeActivity extends Activity implements OnClickListener {
 		// NetworkImageView
 		findViewById(R.id.btn_network_image_view).setOnClickListener(this);
 
-		// Xml按钮
-		findViewById(R.id.btn_xml_request).setOnClickListener(this);
-
-		// post按钮
-		findViewById(R.id.btn_post_request).setOnClickListener(this);
-		
 	}
 
 	@Override
@@ -75,11 +78,20 @@ public class HomeActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		Intent intent = new Intent(HomeActivity.this, RequestActivity.class);
 		switch (v.getId()) {
+		case R.id.btn_post_request:
+			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, PostRequestFragment.INDEX);
+			break;
 		case R.id.btn_string_request:
 			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, StringRequestFragment.INDEX);
 			break;
-		case R.id.btn_json_request:
-			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, JsonRequestFragment.INDEX);
+		case R.id.btn_jsonobject_request:
+			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, JsonObjectRequestFragment.INDEX);
+			break;
+		case R.id.btn_gson_request:
+			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, GsonRequestFragment.INDEX);	
+			break;
+		case R.id.btn_xml_request:
+			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, XmlRequestFragment.INDEX);
 			break;
 		case R.id.btn_image_request:
 			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, ImageRequestFragment.INDEX);
@@ -89,12 +101,6 @@ public class HomeActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.btn_network_image_view:
 			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, NetworkImageViewFragment.INDEX);
-			break;
-		case R.id.btn_xml_request:
-			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, XmlRequestFragment.INDEX);
-			break;
-		case R.id.btn_post_request:
-			intent.putExtra(Constants.Extra.FRAGMENT_INDEX, PostRequestFragment.INDEX);
 			break;
 		default:
 			break;

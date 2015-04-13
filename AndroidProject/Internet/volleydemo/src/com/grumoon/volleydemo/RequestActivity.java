@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
+import com.grumoon.volleydemo.fragment.GsonRequestFragment;
 import com.grumoon.volleydemo.fragment.ImageLoaderFragment;
 import com.grumoon.volleydemo.fragment.ImageRequestFragment;
-import com.grumoon.volleydemo.fragment.JsonRequestFragment;
+import com.grumoon.volleydemo.fragment.JsonObjectRequestFragment;
 import com.grumoon.volleydemo.fragment.NetworkImageViewFragment;
 import com.grumoon.volleydemo.fragment.PostRequestFragment;
 import com.grumoon.volleydemo.fragment.StringRequestFragment;
@@ -33,13 +34,21 @@ public class RequestActivity extends FragmentActivity {
 			}
 			titleRes = R.string.string_request;
 			break;
-		case JsonRequestFragment.INDEX:
-			tag = JsonRequestFragment.class.getSimpleName();
+		case GsonRequestFragment.INDEX:
+			tag = GsonRequestFragment.class.getSimpleName();
 			fr = getSupportFragmentManager().findFragmentByTag(tag);
 			if (fr == null) {
-				fr = new JsonRequestFragment();
+				fr =  new GsonRequestFragment();
 			}
-			titleRes = R.string.json_request;
+			titleRes = R.string.gson_request;
+			break;
+		case JsonObjectRequestFragment.INDEX:
+			tag = JsonObjectRequestFragment.class.getSimpleName();
+			fr = getSupportFragmentManager().findFragmentByTag(tag);
+			if (fr == null) {
+				fr = new JsonObjectRequestFragment();
+			}
+			titleRes = R.string.jsonobject_request;
 			break;
 		case ImageRequestFragment.INDEX:
 			tag = ImageRequestFragment.class.getSimpleName();

@@ -49,7 +49,7 @@ public class PostRequestFragment extends Fragment {
 		tvResult = (TextView) view.findViewById(R.id.tv_result);
 
 		etUrl.setText(Constants.DEFAULT_POST_REQUEST_URL);
-		etParams.setText("mobileCode=13636527078;\nuserID=;");
+		etParams.setText("mobileCode=13112217352;\nuserID=;");
 
 		btnSend.setOnClickListener(new OnClickListener() {
 
@@ -59,7 +59,7 @@ public class PostRequestFragment extends Fragment {
 					ToastUtil.showToast(getActivity(), "请输入请求地址");
 					return;
 				}
-				// 请求之前，先取消之前的请求（取消还没有进行完的请求）
+				// 发送新的请求之前，取消之前的请求
 				VolleyUtil.getQueue(getActivity()).cancelAll(this);
 
 				tvResult.setText("");
@@ -84,7 +84,6 @@ public class PostRequestFragment extends Fragment {
 
 				StringRequest request = new StringRequest(Method.POST, StringUtil.preUrl(etUrl.getText().toString().trim()), listener, errorListener) {
 
-					//重写getParams设置post请求的参数
 					@Override
 					protected Map<String, String> getParams() throws AuthFailureError {
 						Map<String, String> paramMap = new HashMap<String, String>();
@@ -107,14 +106,14 @@ public class PostRequestFragment extends Fragment {
 
 							}
 						} catch (Exception e) {
-							ToastUtil.showToast(getActivity(), "参数格错误");
+							ToastUtil.showToast(getActivity(), "请求失败");
 						}
 						return paramMap;
 					}
 
 				};
 
-				// 请求加上Tag,用于取消请求
+				// //将请求都绑定到执行的Activity上
 				request.setTag(this);
 
 				VolleyUtil.getQueue(getActivity()).add(request);
