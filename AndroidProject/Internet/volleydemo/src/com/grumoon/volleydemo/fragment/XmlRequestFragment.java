@@ -79,7 +79,6 @@ public class XmlRequestFragment extends Fragment {
 								eventType = parser.next();
 							}
 
-
 							adapter.notifyDataSetChanged();
 						} catch (XmlPullParserException e) {
 							e.printStackTrace();

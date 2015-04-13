@@ -20,7 +20,6 @@ import com.android.volley.VolleyError;
 import com.grumoon.volleydemo.R;
 import com.grumoon.volleydemo.custom.GsonRequest;
 import com.grumoon.volleydemo.util.Constants;
-import com.grumoon.volleydemo.util.LogUtil;
 import com.grumoon.volleydemo.util.StringUtil;
 import com.grumoon.volleydemo.util.ToastUtil;
 import com.grumoon.volleydemo.util.VolleyUtil;
@@ -31,10 +30,10 @@ import com.grumoon.volleydemo.util.WeatherInfo;
 public class GsonRequestFragment extends Fragment {
 	public static final int INDEX = 32;
 
-	private ListView lvWeather;
-	private static final int[] ids = { R.id.gs_weather_city, R.id.gs_weather_temp, R.id.gs_weather_time};
-	private static final String[] keys = { "city", "temp", "time"};
-	private List<Map<String, String>> weatherDataList;
+	private ListView GslvWeather;
+	private static final int[] Gsids = { R.id.gs_weather_city, R.id.gs_weather_temp, R.id.gs_weather_time};
+	private static final String[] Gskeys = { "city", "temp", "time"};
+	private List<Map<String, String>> GsweatherDataList;
 	
 	private SimpleAdapter adapter;
 	@Override
@@ -42,31 +41,28 @@ public class GsonRequestFragment extends Fragment {
 
 		View view = inflater.inflate(R.layout.fr_gson_request, container, false);
 
-		weatherDataList = new ArrayList<Map<String,String>>();
+		GsweatherDataList = new ArrayList<Map<String,String>>();
 
-		lvWeather = (ListView) view.findViewById(R.id.gs_weather);
-		adapter = new SimpleAdapter(getActivity(), weatherDataList, R.layout.fr_gson_request_list_item, keys, ids);
-		lvWeather.setAdapter(adapter);
+		GslvWeather = (ListView) view.findViewById(R.id.gs_weather);
+		adapter = new SimpleAdapter(getActivity(), GsweatherDataList, R.layout.fr_gson_request_list_item, Gskeys, Gsids);
+		GslvWeather.setAdapter(adapter);
 
 		// xmlÊý¾ÝÇëÇó
 		GsonRequest<Weather> request = new GsonRequest<Weather>(StringUtil.preUrl(Constants.DEFAULT_GSON_REQUEST_URL), Weather.class,
 				new Response.Listener<Weather>() {
 					@Override
 					public void onResponse(Weather weather) {
-						weatherDataList.clear();
+						GsweatherDataList.clear();
 						
-						Map<String, String> weatherMap = new HashMap<String, String>();
+						Map<String, String> GsweatherMap = new HashMap<String, String>();
 						WeatherInfo weatherInfo = weather.getWeatherinfo();
-			
-						LogUtil.d("TAG", "city is " + weatherInfo.getCity());
-						LogUtil.d("TAG", "temp is " + weatherInfo.getTemp());
-						LogUtil.d("TAG", "time is " + weatherInfo.getTime());
-						
-						weatherMap.put("city", weatherInfo.getCity());
-						weatherMap.put("temp", weatherInfo.getTemp());
-						weatherMap.put("time", weatherInfo.getTime());
+																								
+						GsweatherMap.put("city", weatherInfo.getCity());
+						GsweatherMap.put("temp", weatherInfo.getTemp()+"¡æ");
+						GsweatherMap.put("time", weatherInfo.getTime());
 					
-						weatherDataList.add(weatherMap);
+						GsweatherDataList.add(GsweatherMap);
+						adapter.notifyDataSetChanged();//Dynamic refresh listview,it's very important fou us to display
 					}
 
 				}, new ErrorListener() {
