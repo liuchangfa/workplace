@@ -62,7 +62,9 @@ public class GsonRequestFragment extends Fragment {
 						GsweatherMap.put("time", weatherInfo.getTime());
 					
 						GsweatherDataList.add(GsweatherMap);
-						adapter.notifyDataSetChanged();//Dynamic refresh listview,it's very important fou us to display
+						
+						//Dynamic refresh listview,it's very important fou us to display
+						adapter.notifyDataSetChanged();
 					}
 
 				}, new ErrorListener() {
