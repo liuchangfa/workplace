@@ -3,13 +3,15 @@ package com.ertanhydro.zxing;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ResultActivity extends Activity {
+public class ResultActivity extends Activity implements OnClickListener{
 
 	private ImageView barcodeImageView;
 	private TextView formatTextView;
@@ -33,6 +35,27 @@ public class ResultActivity extends Activity {
 
 	}
 
+	/**
+	 * 按键处理
+	 */
+	@Override
+	public void onClick(View v) {
+		
+		switch (v.getId()) {
+		case R.id.button_function:
+			Intent intent=new Intent();
+			intent = intent.setClass(ResultActivity.this,AboutActivity.class);
+			startActivity(intent);
+			break;
+		case R.id.mresult_button_back:
+				// TODO Auto-generated method stub
+				finish();
+			break;
+		default:
+			break;
+		}
+	}
+	
 	private void setView() {
 		barcodeImageView.setImageBitmap(barcodeBitmap);
 		formatTextView.setText(barcodeFormat);
@@ -52,6 +75,8 @@ public class ResultActivity extends Activity {
 	}
 
 	private void initView() {
+   		findViewById(R.id.mresult_button_back).setOnClickListener(this);
+   		findViewById(R.id.button_function).setOnClickListener(this);
 		barcodeImageView = (ImageView) findViewById(R.id.barcode_image_view);
 		formatTextView = (TextView) findViewById(R.id.format_text_view);
 		timeTextView = (TextView) findViewById(R.id.time_text_view);
