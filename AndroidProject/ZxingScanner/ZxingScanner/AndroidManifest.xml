@@ -16,7 +16,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/launcher_icon"
+        android:icon="@drawable/lcf13112217352"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
             android:name="com.ertanhydro.zxing.HomeActivity"

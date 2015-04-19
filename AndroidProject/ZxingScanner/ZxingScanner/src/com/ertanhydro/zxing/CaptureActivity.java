@@ -5,21 +5,27 @@ import java.text.DateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.Vector;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.SurfaceHolder;
@@ -38,11 +44,19 @@ import com.ertanhydro.zxing.decode.CaptureActivityHandler;
 import com.ertanhydro.zxing.decode.DecodeThread;
 import com.ertanhydro.zxing.decode.FinishListener;
 import com.ertanhydro.zxing.decode.InactivityTimer;
+import com.ertanhydro.zxing.decode.RGBLuminanceSource;
 import com.ertanhydro.zxing.view.ViewfinderView;
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.ChecksumException;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.FormatException;
+import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
 import com.google.zxing.ResultPoint;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.QRCodeReader;
 
 /**
  * 条码二维码扫描功能实现
@@ -73,6 +87,16 @@ public class CaptureActivity extends Activity implements SurfaceHolder.Callback,
 	private CameraManager cameraManager;
 	private Vector<BarcodeFormat> decodeFormats;// 编码格式
 	private CaptureActivityHandler mHandler;// 解码线程
+	
+	/**
+	 * 添加二维码图片选择
+	 */
+	private ProgressDialog mProgress;
+	private String photo_path;
+	private Bitmap scanBitmap;
+	private static final int REQUEST_CODE = 100;
+	private static final int PARSE_BARCODE_SUC = 300;
+	private static final int PARSE_BARCODE_FAIL = 303;
 
 	private static final Collection<ResultMetadataType> DISPLAYABLE_METADATA_TYPES = EnumSet
 			.of(ResultMetadataType.ISSUE_NUMBER,
@@ -103,11 +127,98 @@ public class CaptureActivity extends Activity implements SurfaceHolder.Callback,
 			this.finish();
 			break;
 		case R.id.button_function:
-			Intent intent=new Intent();
+			/*Intent intent=new Intent();
 			intent = intent.setClass(CaptureActivity.this,AboutActivity.class);
 			startActivity(intent);
+			break;*/
+			Intent innerIntent = new Intent(Intent.ACTION_GET_CONTENT); //"android.intent.action.GET_CONTENT"
+	        innerIntent.setType("image/*");
+	        Intent wrapperIntent = Intent.createChooser(innerIntent, "选择二维码图片");
+	        this.startActivityForResult(wrapperIntent, REQUEST_CODE);
 			break;
 		}
+	}
+	
+	/**
+	 * 回调方法，扫描二维码图片
+	 */
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(resultCode == RESULT_OK){
+			switch(requestCode){
+			case REQUEST_CODE:
+				//获取选中图片路径
+				Cursor cursor = getContentResolver().query(data.getData(), null, null, null, null);
+				if (cursor.moveToFirst()) {
+					photo_path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+				}
+				cursor.close();
+				
+				mProgress = new ProgressDialog(CaptureActivity.this);
+				mProgress.setMessage("扫描图片...");
+				mProgress.setCancelable(false);
+				mProgress.show();
+				
+				new Thread(new Runnable() {
+					@Override
+					public void run() {
+						Result result = scanningImage(photo_path);
+						if (result != null) {
+							Message m = mHandler.obtainMessage();
+							m.what = PARSE_BARCODE_SUC;
+							m.obj = result.getText();
+							mHandler.sendMessage(m);
+						} else {
+							Message m = mHandler.obtainMessage();
+							m.what = PARSE_BARCODE_FAIL;
+							m.obj = "Scan failed!";
+							mHandler.sendMessage(m);
+						}
+					}
+				}).start();
+				
+				break;
+			
+			}
+		}
+	}
+	
+	/**
+	 * 扫描二维码图片的方法
+	 * @param path
+	 * @return
+	 */
+	public Result scanningImage(String path) {
+		if(TextUtils.isEmpty(path)){
+			return null;
+		}
+		Hashtable<DecodeHintType, String> hints = new Hashtable<DecodeHintType, String>();
+		hints.put(DecodeHintType.CHARACTER_SET, "UTF8"); //设置二维码内容的编码
+
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inJustDecodeBounds = true; // 先获取原大小
+		scanBitmap = BitmapFactory.decodeFile(path, options);
+		options.inJustDecodeBounds = false; // 获取新的大小
+		int sampleSize = (int) (options.outHeight / (float) 200);
+		if (sampleSize <= 0)
+			sampleSize = 1;
+		options.inSampleSize = sampleSize;
+		scanBitmap = BitmapFactory.decodeFile(path, options);
+		RGBLuminanceSource source = new RGBLuminanceSource(scanBitmap);
+		BinaryBitmap bitmap1 = new BinaryBitmap(new HybridBinarizer(source));
+		QRCodeReader reader = new QRCodeReader();
+		try {
+			return reader.decode(bitmap1, hints);
+
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+		} catch (ChecksumException e) {
+			e.printStackTrace();
+		} catch (FormatException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**
