@@ -1,3 +1,25 @@
 adb remount
 adb shell
 adb push E:\SystemUpdater-debug.apk system/priv-app
+
+
+系统升级操作：
+
+一.准备工作：
+    1.adb shell cat /system/build.prop ，查看硬件版本
+    2.获取对应版本的update.zip升级包
+    3.获取command文件
+
+二.执行指定脚本
+    执行1-adb yboot 确保硬件连接
+
+三.最后阶段  
+1. adb push E:\update.zip cache/
+2. adb push E:\command cache/recovery
+3. adb reboot recovery
+
+
+cmd 常用命令;
+1.adb shell getprop | findstr yunnex
+2.adb shell setprop <key>  <vaule>
+  adb shell setprop debug.yunnex.version.code 10604
