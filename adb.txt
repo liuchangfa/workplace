@@ -1,6 +1,7 @@
 adb remount
 adb shell
 adb push E:\SystemUpdater-debug.apk system/priv-app
+E:\AndroidStudio_WorkPlace\AndroidStudio_YunnexSource\Common\Bin\YunnexAndroidAdb>
 
 
 系统升级操作：
