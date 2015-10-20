@@ -24,3 +24,13 @@ cmd 常用命令;
 1.adb shell getprop | findstr yunnex
 2.adb shell setprop <key>  <vaule>
   adb shell setprop debug.yunnex.version.code 10604
+
+linux常用命令：
+	查看历史命令：history | grep user
+
+源码编译：
+	源码目录：Source/dev/newman/mt6582m/alps
+	1.配置：source setenv.sh
+	2.编译：./mk -o=TARGET_BUILD_VARIANT=user eastaeon82_wet_kk n
+升级包编译：
+	1.编译 ./mk-ota.sh 
