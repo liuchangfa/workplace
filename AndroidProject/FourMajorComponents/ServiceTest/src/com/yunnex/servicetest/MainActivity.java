@@ -1,0 +1,118 @@
+package com.yunnex.servicetest;
+
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MainActivity extends Activity implements OnClickListener{
+
+	private Button startService;
+	private Button stopService;
+	private Button bindService;
+	private Button unbindService;
+	private Button startIntentService;
+	private Button startAlarmReceiver;
+	private Button stopAlarmReceiver;
+	private MyService.DownloadBinder downloadBinder;
+	private ServiceConnection connection = new ServiceConnection() {
+		
+		@Override
+		public void onServiceDisconnected(ComponentName name) {
+		}
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder service) {
+			downloadBinder = (MyService.DownloadBinder) service;
+			downloadBinder.startDownload();
+			downloadBinder.getProgress();
+		}
+	};
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		
+		startService = (Button) findViewById(R.id.start_service);
+		stopService = (Button) findViewById(R.id.stop_service);
+		bindService = (Button) findViewById(R.id.bind_service);
+		unbindService = (Button) findViewById(R.id.unbind_service);
+		startIntentService = (Button) findViewById(R.id.start_intent_service);
+		startAlarmReceiver = (Button) findViewById(R.id.start_alarm_receiver);
+		stopAlarmReceiver = (Button) findViewById(R.id.stop_alarm_receiver);
+		startIntentService.setOnClickListener(this);
+		bindService.setOnClickListener(this);
+		unbindService.setOnClickListener(this);
+		startService.setOnClickListener(this);
+		stopService.setOnClickListener(this);
+		startAlarmReceiver.setOnClickListener(this);
+		stopAlarmReceiver.setOnClickListener(this);
+		
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.start_service:
+			Intent startIntent = new Intent(this, MyService.class);
+			startService(startIntent); // 启动服务
+			break;
+		case R.id.stop_service:
+			Intent stopIntent = new Intent(this, MyService.class);
+			stopService(stopIntent); // 停止服务
+			break;
+		case R.id.bind_service:
+			Intent bindIntent = new Intent(this, MyService.class);
+			bindService(bindIntent, connection, BIND_AUTO_CREATE); // 绑定服务
+			break;
+		case R.id.unbind_service:
+			unbindService(connection); // 解绑服务
+			break;
+		case R.id.start_intent_service:
+			// 打印主线程的id
+			Log.d("MainActivity", "Thread id is " + Thread.currentThread().getId());
+			Intent intentService = new Intent(this, MyIntentService.class);
+			startService(intentService);
+			break;
+		case R.id.start_alarm_receiver:
+			//启动定时任务
+			Intent startintent = new Intent(this, LongRunningService.class);
+			startService(startintent);
+			break;
+		case R.id.stop_alarm_receiver:
+			//停止定时任务
+			Intent stopintent = new Intent(this, LongRunningService.class);
+			stopService(stopintent);
+			break;	
+		default:
+			break;
+		}
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}

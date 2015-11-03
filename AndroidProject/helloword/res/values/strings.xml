@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">My First App</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Button 1</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_item">Add</string>
+    <string name="remove_item">Remove</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="button_2">Button 2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_third">ThirdActivity</string>
+    <string name="button_3">Button 3</string>
+    <string name="title_activity_base">BaseActivity</string>
+
+
+</resources>

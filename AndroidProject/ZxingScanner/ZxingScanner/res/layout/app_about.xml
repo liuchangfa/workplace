@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mmtitle_bg_alpha" >
+
+    <RelativeLayout 
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:background="@drawable/mmtitle_bg_alpha" >
+
+	    <Button
+	        android:id="@+id/button_back"
+	        android:layout_width="75.0dip"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:background="@drawable/mm_title_back_btn"
+	        android:text="@string/scan_back"
+	        android:textColor="@android:color/white" />
+	
+	    <TextView
+	        android:id="@+id/about_title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_centerVertical="true"
+	        android:gravity="center_vertical"
+	        android:text="@string/action_about"
+	        android:textColor="@android:color/white"
+	        android:textSize="18sp" />
+	
+	</RelativeLayout>
+    
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/lcf13112217352" />
+
+    <TextView
+        android:id="@+id/tv_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:textSize="15sp" />
+
+</RelativeLayout>

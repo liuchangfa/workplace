@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<Button
+		android:id="@+id/start_service"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#4e2e4e"
+		android:text="@string/start" />
+	
+	<Button
+		android:id="@+id/stop_service"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#00009c"
+		android:text="@string/stop" />
+	
+	<Button
+		android:id="@+id/bind_service"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#ff00ff"
+		android:text="@string/bind" />
+	
+	<Button
+		android:id="@+id/unbind_service"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#d98719"
+		android:text="@string/unbind" />
+	
+	<Button
+	android:id="@+id/start_intent_service"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="#ff0000"
+	android:text="@string/intent"/>
+    
+	<Button
+	android:id="@+id/start_alarm_receiver"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="#527e76"
+	android:text="@string/alarm"/>
+	
+	<Button
+	android:id="@+id/stop_alarm_receiver"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="#2f2f4f"
+	android:text="@string/stop_alarm"/>
+	
+</LinearLayout>

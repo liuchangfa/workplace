@@ -1,0 +1,36 @@
+adb remount
+adb shell
+adb push E:\SystemUpdater-debug.apk system/priv-app
+E:\AndroidStudio_WorkPlace\AndroidStudio_YunnexSource\Common\Bin\YunnexAndroidAdb>
+
+
+系统升级操作：
+
+一.准备工作：
+    1.adb shell cat /system/build.prop ，查看硬件版本
+    2.获取对应版本的update.zip升级包
+    3.获取command文件
+
+二.执行指定脚本
+    执行1-adb yboot 确保硬件连接
+
+三.最后阶段  
+1. adb push E:\update.zip cache/
+2. adb push E:\command cache/recovery
+3. adb reboot recovery
+
+
+cmd 常用命令;
+1.adb shell getprop | findstr yunnex
+2.adb shell setprop <key>  <vaule>
+  adb shell setprop debug.yunnex.version.code 10604
+
+linux常用命令：
+	查看历史命令：history | grep user
+
+源码编译：
+	源码目录：Source/dev/newman/mt6582m/alps
+	1.配置：source setenv.sh
+	2.编译：./mk -o=TARGET_BUILD_VARIANT=user eastaeon82_wet_kk n
+升级包编译：
+	1.编译 ./mk-ota.sh 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyDataSQL</string>
+    <string name="create">Create database</string>
+    <string name="add">Add data</string>
+    <string name="update">Update data</string>
+    <string name="delete">Delete data</string>
+    <string name="query">Query data</string>
+    <string name="replace">Replace data</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
