@@ -28,6 +28,12 @@ cmd 常用命令;
 linux常用命令：
 	查看历史命令：history | grep user
 
+服务器地址：
+	IP：192.168.1.30
+	主机名：test-10
+	用户名：ubuntu
+	密码：yunnex6j7
+
 源码编译：
 	源码目录：Source/dev/newman/mt6582m/alps
 	1.配置：source setenv.sh
