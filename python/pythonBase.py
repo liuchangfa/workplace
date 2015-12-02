@@ -100,7 +100,7 @@ dict = {'Name':'herman', 'Age':21, 'Name':'liuchangfa'}
 print "dict['Name']:", dict[ 'Name' ]
 dict = {('Name'):'herman', 'Age':21, 'Name':'liuchangfa'}  
 print "dict['Name']:", dict['Name']    
-#下面这行会出错,不能用可以改变分list作为键值
+#下面这行会出错,不能用可以改变的list作为键值
 #dict = {['Name']:'herman', 'Age':21, 'Name':'liuchangfa'}
 
 #******************************************************************** 
@@ -291,7 +291,7 @@ print "Softspace flag : ", fo.softspace
 fo.write( "Python is a great language.\nYeah its great!!\n");
 
 # 打开一个文件
-fo = open("/tmp/foo.txt", "r+")
+fo = open("foo.txt", "r+")
 str = fo.read(10);
 print "Read String is : ", str 
 # 查找当前位置
@@ -315,7 +315,7 @@ print '\n'
 #   
 ###################################################################
 try:
-    fh = open("testfile", "w")
+    fh = open("test/testfile", "w")
     fh.write("This is my test file for exception handling!!")
 except IOError:
     print "Error: can\'t find file or read data"
