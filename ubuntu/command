@@ -1,0 +1,34 @@
+常用命令：
+	打开当前路径文件$：nautilus .
+	批量修改文件扩展名：find ./ -name ".gitignore" | xargs -t -i  mv {} {}.back
+	查找字符：find . -name "*mk" | xargs grep "TouchPal"
+
+制作开机动画：
+	zip -0 bootanimation.zip part0/*png part1/*png desc.txt
+
+系统升级相关：
+	编译全量包，同时生产中间文件：make otapackage
+	压缩：zip -qry ../B.zip .
+	由中间包打全量包：./build/tools/releasetools/ota_from_target_files -v --block -p out/host/linux-x86 -k build/target/product/security/release  -z out/target/product/br6735m_65u_s_l1/trustzone.bin 				  A.zip update.zip
+        中间包打升级包：./build/tools/releasetools/ota_from_target_files -v --block -p out/host/linux-x86 -k build/target/product/security/release  -z out/target/product/br6735m_65u_s_l1/trustzone.bin 		       -i A.zip B.zip update.zip
+	
+
+分区修改:
+	alps/device/mediatek/build/build/tools/ptgen/MT6735M/partition_table_MT6735M.xls
+
+git相关：
+	修改.git所属者：sudo chown -R  ubuntu:ubuntu s508_code.git
+
+编译内核 
+	mmm -B kernel-3.10:kernel -j4
+
+快速打包bootimage:
+	make bootimage-nodeps
+
+安卓原生：
+	进入设置：adb shell am start -a android.intent.action.MAIN -n com.android.settings/.Settings
+
+	
+
+
+
