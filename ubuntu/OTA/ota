@@ -1,0 +1,8 @@
+MTK_SECURITY_SW_SUPPORT=yes MKBOOTIMG=out/host/linux-x86/bin/mkbootimg \
+	     ./build/tools/releasetools/ota_from_target_files -v \
+	     --block \
+	     -p out/host/linux-x86 \
+	     -k build/target/product/security/release \
+	     -z out/target/product/br6735m_65u_s_l1/trustzone.bin \
+	      \
+	     out/target/product/br6735m_65u_s_l1/obj/PACKAGING/target_files_intermediates/full_br6735m_65u_s_l1-target_files-1452782054.zip out/target/product/br6735m_65u_s_l1/full_br6735m_65u_s_l1-ota-1452782054.zip
