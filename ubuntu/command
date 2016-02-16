@@ -10,7 +10,7 @@
 	编译全量包，同时生产中间文件：make otapackage
 	压缩：zip -qry ../B.zip .
 	由中间包打全量包：./build/tools/releasetools/ota_from_target_files -v --block -p out/host/linux-x86 -k build/target/product/security/release  -z out/target/product/br6735m_65u_s_l1/trustzone.bin 				  A.zip update.zip
-        中间包打升级包：./build/tools/releasetools/ota_from_target_files -v --block -p out/host/linux-x86 -k build/target/product/security/release  -z out/target/product/br6735m_65u_s_l1/trustzone.bin 		       -i A.zip B.zip update.zip
+    中间包打升级包：./build/tools/releasetools/ota_from_target_files -v --block -p out/host/linux-x86 -k build/target/product/security/release  -z out/target/product/br6735m_65u_s_l1/trustzone.bin 		       -i A.zip B.zip update.zip
 	
 
 分区修改:
@@ -24,6 +24,9 @@ git相关：
 
 快速打包bootimage:
 	make bootimage-nodeps
+
+设备打开测试权限：
+	adb shell setprop log.tag.yunnex.debug.tag DEBUG
 
 安卓原生：
 	进入设置：adb shell am start -a android.intent.action.MAIN -n com.android.settings/.Settings
