@@ -1,7 +1,7 @@
 常用命令：
 	打开当前路径文件$：nautilus .
 	批量修改文件扩展名：find ./ -name ".gitignore" | xargs -t -i  mv {} {}.back
-	查找字符：find . -name "*mk" | xargs grep "TouchPal"
+	查找字符：find . -name "*.mk" | xargs grep "TouchPal"
 
 制作开机动画：
 	zip -0 bootanimation.zip part0/*png part1/*png desc.txt
@@ -18,6 +18,8 @@
 
 git相关：
 	修改.git所属者：sudo chown -R  ubuntu:ubuntu s508_code.git
+        查看某个文件的log记录：git log --pretty=oneline 文件
+        恢复到某个特定版本：git reset --hard log
 
 编译内核 
 	mmm -B kernel-3.10:kernel -j4
@@ -30,8 +32,14 @@ git相关：
 
 安卓原生：
 	进入设置：adb shell am start -a android.intent.action.MAIN -n com.android.settings/.Settings
+查看TP版本
 
-	
+
+编译内核boot：mmm -B kernel-3.10:kernel -j8 2>&1 |tee build.log && make bootimage-nodeps
+
+./build/target/product/core.mk
+./device/mediatek/mt6735/device.mk
+./device/mediatek/mt6735/device.mk
 
 
 
