@@ -20,6 +20,7 @@ git相关：
 	修改.git所属者：sudo chown -R  ubuntu:ubuntu s508_code.git
         查看某个文件的log记录：git log --pretty=oneline 文件
         恢复到某个特定版本：git reset --hard log
+        将某个文件恢复到特定版本：git reset log 文件/目录
 
 编译内核 
 	mmm -B kernel-3.10:kernel -j4
@@ -40,6 +41,18 @@ git相关：
 ./build/target/product/core.mk
 ./device/mediatek/mt6735/device.mk
 ./device/mediatek/mt6735/device.mk
+
+
+编译解锁版boot：
+	1.git reset 1c38125751e2d824591da5aac57e2c73b08c3fc5 system/core/adb
+	2.git checkout system/core/adb
+	3.make bootimage -j8
+将boot恢复：
+	1.git reset HEAD system/core/adb
+	2.git checkout system/core/adb
+	3.make bootimage -j8
+
+
 
 
 
