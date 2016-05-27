@@ -2,6 +2,7 @@
 	打开当前路径文件$：nautilus .
 	批量修改文件扩展名：find ./ -name ".gitignore" | xargs -t -i  mv {} {}.back
 	查找字符：find . -name "*.mk" | xargs grep "TouchPal"
+	查找文件并删除：find . -name "*.mk" | xargs rm -rf
 
 制作开机动画：
 	zip -0 bootanimation.zip part0/*png part1/*png desc.txt
@@ -51,6 +52,9 @@ git相关：
 	1.git reset HEAD system/core/adb
 	2.git checkout system/core/adb
 	3.make bootimage -j8
+
+屏蔽wifi 5G信号：
+vendor/mediatek/proprietary/custom/br6735m_65u_s_l1/cgen/cfgdefault/CFG_WIFI_Default.h
 
 
 
