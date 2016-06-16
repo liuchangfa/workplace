@@ -1,0 +1,2 @@
+1.Ìæ»»Â·¾¶£º C:\WINDOWS\system32\drivers\etc 
+2.ÉúÐ§£ºipconfig /flushdns
