@@ -1,0 +1,5 @@
+1、安装手册：
+	http://blog.chinaunix.net/uid-26000296-id-4972271.html
+
+2、修改配置：
+	apps/redmine/htdocs/public/stylesheets/application.css

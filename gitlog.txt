@@ -1,0 +1,923 @@
+commit 1ae7733ae2c36116562fd6442ebcefaa22b432b4
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jun 17 18:15:04 2016 +0800
+
+    update Update compile script
+
+commit 853ecaa366bef192d800b506abf00eb7471a5627
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jun 17 18:12:55 2016 +0800
+
+    update system version content
+
+commit 50097ee45ffe6b267d64f4d3f0dfe5bdfdf0e575
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jun 17 18:11:57 2016 +0800
+
+    update yunnex app to 30212
+
+commit 19898347030c4e7207334b526f7986fb1316832e
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jun 17 12:11:01 2016 +0800
+
+    open odex
+
+commit 7a56ae3c65731ed7442ddf720e48ab48d5674897
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jun 17 12:08:50 2016 +0800
+
+    modify display of userdebug
+
+commit e1b6a7f35842f0dfb734ad522a741da80d352c0b
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jun 13 15:05:22 2016 +0800
+
+    update system version to Vpos_Z3_V3.6
+
+commit 57c3e8311c590255f4e93b1385b7df1d93983969
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jun 13 15:02:50 2016 +0800
+
+    Intercept the power button, when printing is not allowed off the screen
+
+commit a3dbf2bfe414d735ee0b857ad21e71c096f750d3
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jun 13 14:58:26 2016 +0800
+
+    Support 2.4G/5G band selection
+
+commit 0f1eb54ba40fc386713dd1941426f3501439dfa1
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu May 19 19:16:50 2016 +0800
+
+    update system version to 3.5
+
+commit 6255c0668bcaa484b49338f9a0747086fc7845e4
+Merge: 0a492bf e433f2d
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed May 18 15:27:13 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit 0a492bf4549718f51e5ea864ac84bf59ca4825b6
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed May 18 15:26:42 2016 +0800
+
+    update LCD IC to ili9881c
+
+commit e433f2dda0a2205dc6b68bbf3c98a619a268e4b5
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon May 16 11:40:14 2016 +0800
+
+    add Zsettings Packages
+
+commit aa2fdb30fca8ca88e93df0c1514ae8de1329a929
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed May 11 11:20:53 2016 +0800
+
+    add ZSettings
+
+commit 2da733429985a4b3ab53b54bf993c3938068b122
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon May 9 10:13:39 2016 +0800
+
+    add print CTS node
+
+commit fb66dbd5bc3fb34aedfc226da434e49e1495aea6
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon May 9 10:09:59 2016 +0800
+
+    update dct with print CTS PIN
+
+commit 1fefcd2a922b052245f9282f54ac30568381171a
+Merge: b28f801 05511c6
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu May 5 15:05:46 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit b28f801e24a25204b7924b3c52c5f9c862e3424e
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu May 5 15:05:29 2016 +0800
+
+    write mac in bootanimation
+
+commit 05511c6700e4f63c674d043736c00f66f6127b05
+Merge: 12ceb35 1a52fc6
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed May 4 12:16:09 2016 +0800
+
+    Resolve conflicts
+
+commit 12ceb35308e33a07aee53566f4a49dd01fb47b68
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed May 4 11:52:17 2016 +0800
+
+    modify print node error
+
+commit 1a52fc6f3ecd6e02049b835620f6bf019d831597
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Apr 29 10:41:17 2016 +0800
+
+    add print node to close print
+
+commit 9cd11defea1c852219c054e0c0df67eef90f7833
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Apr 20 11:02:44 2016 +0800
+
+    Modify Bluetooth address so that each device unique
+
+commit 13880ca8118376c85d36bc2261bb7fb19312eccb
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Apr 20 11:00:50 2016 +0800
+
+    update system version to V3.3
+
+commit 64c395b2b87c898c600418c73c7d1b4e36e9ea3e
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Apr 20 10:45:44 2016 +0800
+
+    Modify low power tips
+
+commit b1f465d00ea6c6b876833c08d828747d5b4e9b38
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Apr 15 16:53:52 2016 +0800
+
+    Modify nfc, recharge cards and reading support
+
+commit f520549f8edad496d346465910ebd1fe4c3d8a82
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Apr 15 10:30:36 2016 +0800
+
+    update make_rom.sh
+
+commit 3afaed6b1acc58d78f7c7516d835530db23404df
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Apr 15 10:29:03 2016 +0800
+
+    update yunnex app to 30001/30002
+
+commit b46874ad69216608281d37880a7f313209d4991a
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Mar 28 15:23:53 2016 +0800
+
+    add system update record
+
+commit 70174f15e2f6f0bda0ce4a447fe158681bd2a6a2
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Mar 28 15:17:46 2016 +0800
+
+    update yunnex app to 20400
+
+commit dfadede2ad293b7798acaad706c9a9021e3ef111
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Mar 28 09:56:57 2016 +0800
+
+    update TP version
+
+commit f20b616a27ecddaf969ea0855d9e56abf702cbd4
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Mar 28 09:56:16 2016 +0800
+
+    modify system time from 2015 to 2016
+
+commit 9f48447c0930240d5242ab5adf1a2c7a5da27ee5
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Mar 28 09:55:10 2016 +0800
+
+    modify system version and model name
+
+commit 0dcf8d320690ce0e0c6791aefb99063c7e00ddff
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Mar 28 09:53:01 2016 +0800
+
+    modify make_rom.sh
+
+commit 3a58cc3c063a804514d04ab445150497053e631a
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Mar 16 18:29:31 2016 +0800
+
+    add wifi_p2p_setting to FactoryMode
+
+commit 7d626752279d1cfdd0c8406deec1d1380042311e
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Mar 15 12:39:00 2016 +0800
+
+    update yunnex app to 2.3.0/2.2.9/2.2.8
+
+commit 4282be3f61f0cd5f210c78e55e87b09ea9ed4048
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Mar 15 12:15:56 2016 +0800
+
+    modify make_rom.sh
+
+commit 72fb696649b2cf90f98b6f771a3ca93a6e6ada19
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Mar 11 15:50:45 2016 +0800
+
+    support nfc
+
+commit a61d3a69ed6792b868ba36fdade41e63381899a4
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Mar 10 18:57:43 2016 +0800
+
+    modify power,Update charging curve
+
+commit dd1ece1657066f879f14281a0450b040cdacad3d
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Mar 10 18:53:53 2016 +0800
+
+    modify FactorMode support NFC
+
+commit 1eed0b89f06ef6384b259f3aa723d1191bccab9f
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Mar 10 18:43:57 2016 +0800
+
+    support NFC
+
+commit 9e56ea0a0db2370e2a7f8c53c5089ae6ea44cd04
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Mar 10 17:12:02 2016 +0800
+
+    modify system time from 2015 to 2016
+
+commit f63e68e93e7d232566063f9c29610351ca9221eb
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Mar 2 16:31:23 2016 +0800
+
+    update yunnex app
+
+commit 842c611856f579789cc277d691a33ef2eece86a6
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Mar 2 16:20:52 2016 +0800
+
+    update make rom sh
+
+commit 5bb0cb62c57bcef6cf2b512a7d014650996c6d93
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Mar 1 12:03:07 2016 +0800
+
+    modify make_rom.sh
+
+commit 8f2fbee9a70577971b3a36159a6355e56ee6e296
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Feb 26 18:52:27 2016 +0800
+
+    update Print serial port driver
+
+commit 0418ef7f4eb67750e3b4ee9c775b0864e7f0ece5
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Feb 26 18:49:32 2016 +0800
+
+    Cutoff voltage charging curve
+
+commit 6728258164e49c34a47ecabf8f09bf0fc2834827
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Feb 26 18:48:03 2016 +0800
+
+    update TP version to 07
+
+commit 89ec3715e4f2e59c0e8b14a845dfa1c1e2fc9247
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Feb 25 16:30:19 2016 +0800
+
+    crop ROM v1.0 : first. remove DeskClock, Calendar, Email, Music, QuickSearchBox, Contacts, FmRadio, BackupRestore, FileManager; second. modify default_wallpaper and live_wallpaper; third. modify model name to Vpos_Z3
+
+commit 2bc64007389b5f21c31b38f0488b6d4cb1690304
+Merge: 901745b 7d55612
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Feb 2 18:08:39 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit 901745b75833ddb4f7444df984be233659d9d3cb
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Feb 2 18:08:21 2016 +0800
+
+    modify bmp to  logo
+
+commit 7d55612eb4ecd19a978f847c44059f0080b25a28
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Feb 2 17:32:39 2016 +0800
+
+    add logo updater in incremental ota package, delete some build log
+
+commit 018ac7eea61db837a48d1f1345b087e787ecc23a
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Feb 1 21:40:24 2016 +0800
+
+    update yunnex app 02.01
+
+commit 0bf90438b0151ad03a7b920aba89caa9836f87ff
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Feb 1 17:58:19 2016 +0800
+
+    modify bootanimation
+
+commit 756f66d469042756a63ab2801d0f6a8ff9fd8d6b
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Feb 1 17:51:16 2016 +0800
+
+    modify logo.bin
+
+commit e83c50c90e2e7b59bea0e65aa5d62bc1017385c1
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Feb 1 17:29:11 2016 +0800
+
+    update yunnex app
+
+commit ea5ed3c8a2fd1f42fa7173cac9e13d3333ed60e1
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 28 14:05:05 2016 +0800
+
+    add ZCS to yunnex app
+
+commit f91fa094b03e6c1d679c6c8b69fa8d89b9674746
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 27 23:07:22 2016 +0800
+
+    add yunnex app for 20205
+
+commit 92bc3d4e88b7d7b0a534362d20145132717f6337
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 27 23:01:38 2016 +0800
+
+    delete yunnex app
+
+commit 0996e025a89ea6f96b01c113ae84e4674baa03c4
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 27 22:16:11 2016 +0800
+
+    optimize mk-ota-patch.sh
+
+commit 96a34ae08fc3d76e1dd55a65a122bbd53794072c
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 27 22:14:20 2016 +0800
+
+    modify factoryMode
+
+commit 1a23295f3029570408d12f338c96edc25c6628c3
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Jan 26 12:42:03 2016 +0800
+
+    modify test apk
+
+commit 84535eb2e2a2b65df996dda7d87bf5b62e372321
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Jan 26 11:17:14 2016 +0800
+
+    Adjust icon size for reboot and power_off
+
+commit 69aa0c15f5333451b6808ebeccf2214f99b35075
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Jan 26 10:19:21 2016 +0800
+
+    Change the charging curve 4000m
+
+commit 0ef30f5389d6d721f48c498aab6f45da0982bb3a
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Jan 26 10:17:53 2016 +0800
+
+    change power_off and reboot icon
+
+commit eb8cf389e44bbbcabc4f436ee93cdf7932aacfa7
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jan 25 20:33:50 2016 +0800
+
+    change icon for reboot and power_off
+
+commit 6dd15ad4145c6aae4d5fc723cac6487e409137d6
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jan 25 17:01:44 2016 +0800
+
+    delete WQStoreOrder
+
+commit 00818680102c02db2237a545155acf0743a48631
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jan 25 15:55:09 2016 +0800
+
+    Add production update package script
+
+commit eb136a84d0cfdb1b03302eda3256c48a7d74970b
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jan 25 11:13:53 2016 +0800
+
+    create custom.img
+
+commit abdac236a99ea77aa4ea5be0b52fb9c58adc9d58
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jan 25 11:06:03 2016 +0800
+
+    update newst yunnex apk of V2.2.5  for wq and vpos
+
+commit 3a4633b437764244a751d282e3804b8a4e9927b8
+Author: liuchangfa <290586299@qq.com>
+Date:   Sat Jan 23 16:40:38 2016 +0800
+
+    Mount custom.img
+
+commit 37452cc0b8da36fcecc71fd2bd75f31a289ab00c
+Author: liuchangfa <290586299@qq.com>
+Date:   Sat Jan 23 11:04:28 2016 +0800
+
+    modify custom.img from 55M to 200M
+
+commit 4ff89c5f4751788249c74a0a1e10473f52356587
+Author: liuchangfa <290586299@qq.com>
+Date:   Sat Jan 23 10:32:12 2016 +0800
+
+    update newst VPay.apk
+
+commit bf926321f41499444ba7a75e078787736dfcc6a5
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jan 22 20:19:05 2016 +0800
+
+    add make_rom.sh to make different version rom
+
+commit 9343c1a4a183f7285b7cbe25a021156be9489671
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jan 22 10:40:12 2016 +0800
+
+    update yunnex_app
+
+commit 65969de6f1ebcfa2d952ec3c884e08bdc9c887a3
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 21 20:41:27 2016 +0800
+
+    modify setenv.sh to select flash model
+
+commit a8e9c064bd1acb6e6f48e3b3c9cc4ccb26f37de9
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 21 20:36:27 2016 +0800
+
+    rename flash name
+
+commit 447576561d752fac7c9c77487af3309087dba4ee
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 21 20:07:30 2016 +0800
+
+    add flash 2+16
+
+commit a9dd404e824b3be8eabc7cee14213b9a44e9a444
+Merge: 5019ea3 e6c05b6
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 21 18:46:11 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit 5019ea33b75267ab93f3c8d4ab12c2f0d7c531a6
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 21 18:45:12 2016 +0800
+
+    Increase flash Source Version 1 + 8
+
+commit e6c05b6f06ec4fb215758c3710ed4f7feff5ad8c
+Merge: 72f5b8c c89230a
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 21 18:29:49 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit 72f5b8c53a90229b1d0bd514b730ada1eb20501b
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 21 18:29:41 2016 +0800
+
+    store MTK setting: MTK_SHARE_MODEM_SUPPORT = 2
+
+commit c89230af1f543c7a588c0aaa10905f3083c72153
+Merge: 12bd925 5117d5a
+Author: by-reason <qweyzh@126.com>
+Date:   Thu Jan 21 18:17:06 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit 12bd925d1e61e1372801dca4c4342e656106fd24
+Author: by-reason <qweyzh@126.com>
+Date:   Thu Jan 21 18:16:09 2016 +0800
+
+    change default brightness into system default
+
+commit 5117d5a9040d2c69fe806a3b649a6a6ab1b2ed30
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 21 16:15:46 2016 +0800
+
+    add weiqian app
+
+commit deff20c09befefea6c9c465c3a326933f56d0993
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 21 11:57:32 2016 +0800
+
+    update yunnex app to 2.2.5
+
+commit 3f5aa604815417f3b33989a5bad6ba2171cc20ed
+Author: by-reason <qweyzh@126.com>
+Date:   Wed Jan 20 17:33:13 2016 +0800
+
+    add reject incoming call feature
+
+commit 07f89cb4a562fded6534ce40dd68bdbdf608f400
+Merge: 11cd1b0 6f2bfa5
+Author: by-reason <qweyzh@126.com>
+Date:   Wed Jan 20 17:30:34 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit 11cd1b03040a1bd28404c653e76d3c52bbb8176c
+Author: by-reason <qweyzh@126.com>
+Date:   Wed Jan 20 17:20:24 2016 +0800
+
+    fix win adb build error in sockets.c
+
+commit 6f2bfa5a9f990bf50b5a444283addfdd0b0a8080
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 20 16:56:20 2016 +0800
+
+    add yunnex app
+
+commit 10500cbc2ea6060df576bc8e0f07a1b0064143ac
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 20 16:32:18 2016 +0800
+
+    Modify the partition table
+
+commit 56d4ec05eeea87c352ac85a81ce0c31befd536c5
+Merge: a0164f1 b719bbd
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 20 16:30:25 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit a0164f111e323996a51ce543fa97c247c1b95d06
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 20 16:28:32 2016 +0800
+
+    modify power drivers
+
+commit b719bbd22b7373233d7ea2201d5228db74c0cdad
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 20 16:06:57 2016 +0800
+
+    change dual sim into single sim mode
+
+commit 8cde644bf56c1340386cbb95c47eddcb934c7d95
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 20 15:33:43 2016 +0800
+
+    modify bootanimation.zip
+
+commit 36da8ff71453d6247f4204430c58433d6a0aa6fa
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Jan 19 15:00:28 2016 +0800
+
+    add TP_ili9881c drivers
+
+commit 878b50f7c330c1f3dddf969af9cf875ca6c4c3e6
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Jan 19 14:07:15 2016 +0800
+
+    update led driver
+
+commit d0fe1b77ca80192f92701a04d4081cceae9e4a09
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Jan 19 13:17:04 2016 +0800
+
+    add led driver and modify led color change
+
+commit 964f1e8a4b8858bfe2d2dc40eb982087ed7ec894
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jan 18 18:44:35 2016 +0800
+
+    remove system/vendor app:Baidu_Location,Sina_Weibo,TouchPal,TouchPal_PinyinPack; remove Mms,MmsService
+
+commit 2347ad32238173b7fe74ea095fdcfe9668fd217e
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jan 18 17:58:12 2016 +0800
+
+    update TP parameter
+
+commit eea693d8dce1114167858e8012abbc8fcf863791
+Author: liuchangfa <290586299@qq.com>
+Date:   Mon Jan 18 11:20:32 2016 +0800
+
+    update TP drivers and compatible with two screen
+
+commit ca50ad1c3ab96096734764143e90e3f043a35691
+Author: liuchangfa <290586299@qq.com>
+Date:   Sun Jan 17 16:02:40 2016 +0800
+
+    add camera to FactoryMode
+
+commit 812ce3f7f5c7cd25ad70f2afdcd35978382c2c47
+Author: liuchangfa <290586299@qq.com>
+Date:   Sat Jan 16 19:35:46 2016 +0800
+
+    Press 3s to return Home
+
+commit 39e173042dc0971dd787c1069b37c56e230747ec
+Author: liuchangfa <290586299@qq.com>
+Date:   Sat Jan 16 19:33:35 2016 +0800
+
+    modify Factorymode
+
+commit c7b9d6a80070dc76d453fb54fa05a7ad21b3d509
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jan 15 13:05:57 2016 +0800
+
+    modify factorymode , remove useless mode
+
+commit 213113ab5b9d6d73cf24aa89afcb88dd6966131f
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jan 15 12:03:14 2016 +0800
+
+    update TP driver files
+
+commit 42f58d706c3d4e3a3cf17e50ae98625c80394517
+Merge: d9c4fdd f99313e
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 14 18:33:29 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit d9c4fdd197978372f450973c71fe057ee9f09215
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 14 16:35:06 2016 +0800
+
+    add scan mode to FactoryMode and EngineerMode
+
+commit b8f27404784b288f9d261811054d585848bedd38
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 14 16:26:01 2016 +0800
+
+    delete Home,Lunch2,Lunch3
+
+commit f99313ea3d0e4bbb1398b10954a19675ab7e2ecd
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 13 16:54:58 2016 +0800
+
+    update touchpanel
+
+commit 359d2a226654c06f6492475fa798cdaa5b5fcaa1
+Author: by-reason <qweyzh@126.com>
+Date:   Wed Jan 13 00:52:36 2016 +0800
+
+    change default settings, including disable lockscreen, install non market app
+
+commit d6cc1f93ccf8aaa701755c3dfcf7686b0f197314
+Author: by-reason <qweyzh@126.com>
+Date:   Tue Jan 12 20:09:05 2016 +0800
+
+    disable ipo shutdown, fix build error
+
+commit be83583849a8565e79a0bf2a11a02376a6f51415
+Merge: e69ce42 3560496
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Jan 12 11:47:30 2016 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit 3560496817dcd500fa55649383b631595868dc18
+Author: by-reason <qweyzh@126.com>
+Date:   Tue Jan 12 19:38:46 2016 +0800
+
+    disable mtk ipo shutdown
+
+commit 94b40ada20d0d6c60a73dd34a95d806a8daa842f
+Author: by-reason <qweyzh@126.com>
+Date:   Tue Jan 12 19:25:31 2016 +0800
+
+    add ignore incoming call feature
+
+commit e69ce42d27b5dc21da1cda1a6fc27a844078bb04
+Author: liuchangfa <290586299@qq.com>
+Date:   Tue Jan 12 11:44:15 2016 +0800
+
+    add FactoryMode
+
+commit 892f01fb12d7b00f3876b6ae6b954435c60e8cf1
+Author: by-reason <qweyzh@126.com>
+Date:   Sat Jan 9 15:26:26 2016 +0800
+
+    add ov5648 driver
+
+commit b07cff0c613f0e8ac0dadd7b314ca0f46bf660a6
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jan 8 17:44:14 2016 +0800
+
+    add  boot animation
+
+commit e5dab14ca591075ed7d20b951e81290b135529eb
+Merge: 5f5b725 5c5f311
+Author: ubuntu <ubuntu@test-10>
+Date:   Fri Jan 8 15:33:11 2016 +0800
+
+    Merge branch 'master' of /home/ubuntu/Source/Source_code_501/source_code_508/../s508_code
+
+commit 5f5b725e93c85f01438c5d1b799e60435d97eff4
+Author: ubuntu <ubuntu@test-10>
+Date:   Fri Jan 8 15:31:08 2016 +0800
+
+    add AdminSettings files
+
+commit 5c5f3113a749952e1aa6d73678b4b79f01ff77ba
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jan 8 11:50:33 2016 +0800
+
+    update ov5648mipi_Sensor.c
+
+commit 8e9d493a06e6b9714bdfc2f3eed2cca8c6d57727
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Jan 8 10:12:33 2016 +0800
+
+    modify logo
+
+commit 703b8d42e692fc90bda30b8f7af5026ce75e3ef2
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 7 19:28:23 2016 +0800
+
+    add print and ic in EngineerMode
+
+commit b6ebe4fa555266b24fe83f295321a80a0ba79878
+Author: liuchangfa <290586299@qq.com>
+Date:   Thu Jan 7 18:15:46 2016 +0800
+
+    Replace drivers files
+
+commit 41ece0bc02fe1a0c84f22ce007a3901e09212395
+Author: liuchangfa <290586299@qq.com>
+Date:   Wed Jan 6 20:35:31 2016 +0800
+
+    Exchange shutdown and restart buttons
+
+commit 6dac298ede508e16086bd867e906367fe547a14e
+Author: by-reason <qweyzh@126.com>
+Date:   Wed Jan 6 13:27:53 2016 +0800
+
+    fix build error in ptgen.pl
+
+commit 7553323aa40ee3c149e4f6a5418c632b390c0433
+Author: by-reason <qweyzh@126.com>
+Date:   Wed Jan 6 13:18:37 2016 +0800
+
+    modify setenv for userdebug by default
+
+commit da2ae411d096be6cad1e8d02c88dbc5ac79cb118
+Author: by-reason <qweyzh@126.com>
+Date:   Wed Jan 6 13:14:41 2016 +0800
+
+    fix tty permission
+
+commit 5d97737f0f96a7495949d89423eed5a8ca7f8594
+Author: ubuntu <ubuntu@test-10>
+Date:   Tue Jan 5 21:21:58 2016 +0800
+
+    close selinux tempotary
+
+commit 0aa754823f7868b6406255d349da637f3a6a2396
+Merge: c71ac5e 4b5a6a4
+Author: ubuntu <ubuntu@test-10>
+Date:   Tue Jan 5 18:16:39 2016 +0800
+
+    Merge branch 'master' of /home/ubuntu/Source/Source_code_501/source_code_508/../s508_code
+
+commit 4b5a6a4267b36fde94780bc454a11f7b4da102fe
+Author: by-reason <qweyzh@126.com>
+Date:   Tue Jan 5 18:16:26 2016 +0800
+
+    modify ro.adb.secure property
+
+commit 46fe52862acdc87446fddc040a361f7ac26dd1f8
+Author: by-reason <qweyzh@126.com>
+Date:   Tue Jan 5 18:11:44 2016 +0800
+
+    delete main.mk~
+
+commit c71ac5ebfc20a613c572c21ee79b2b22a2ab8618
+Author: ubuntu <ubuntu@test-10>
+Date:   Tue Jan 5 18:07:03 2016 +0800
+
+    rm main.mk~
+
+commit 86f9485dda8653ed01a2b2a8dd5ded0cdc7f8165
+Author: by-reason <qweyzh@126.com>
+Date:   Tue Jan 5 17:39:14 2016 +0800
+
+    add yunnexframeword build
+
+commit d3606f20642a7024d8c665aa2c2c2daf996e6fb6
+Author: by-reason <qweyzh@126.com>
+Date:   Tue Jan 5 16:51:31 2016 +0800
+
+    add AdminSettings build
+
+commit 0d3708552cb9e0e1e9cc5b2e6cd1bc9afb129267
+Author: by-reason <qweyzh@126.com>
+Date:   Tue Jan 5 16:42:48 2016 +0800
+
+    modify user build args and change adb root process property
+
+commit bbc5672a61610d26415008edf46083adbc8d3393
+Author: by-reason <qweyzh@126.com>
+Date:   Mon Jan 4 22:17:10 2016 +0800
+
+    change default key from testkey to release key
+
+commit 0e5709477e2ead82a16059738b90205b556b7242
+Author: by-reason <qweyzh@126.com>
+Date:   Mon Jan 4 21:37:50 2016 +0800
+
+    modify adb permission and add otapackage in default build
+
+commit b00d82bbf2b6f9c8142b8711c78065f8a82b7979
+Author: by-reason <qweyzh@126.com>
+Date:   Sat Dec 26 16:25:08 2015 +0800
+
+    hide navigation bar
+
+commit 7393fb2af605d7f271c98d7fce0b120762e93159
+Author: liuchangfa <290586299@qq.com>
+Date:   Sat Dec 26 13:54:08 2015 +0800
+
+    modify dtc files and pimic file
+
+commit 691db5f4c6fff5befe3e8f093ef3e5278610e847
+Author: by-reason <qweyzh@126.com>
+Date:   Sat Dec 26 10:51:49 2015 +0800
+
+    fix bug in setenv, ctop funciton ok
+
+commit 195a698463704859a0a8522a82cff7f711f50f74
+Merge: 6fd5a37 b34c63d
+Author: by-reason <qweyzh@126.com>
+Date:   Fri Dec 25 19:15:17 2015 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+    merge conflict
+    Conflicts:
+    	alps/setenv.sh
+
+commit 6fd5a370c11d41744e99aec202d20bf2f07da603
+Author: by-reason <qweyzh@126.com>
+Date:   Fri Dec 25 19:05:56 2015 +0800
+
+    change system code, hide status bar, add reboot function, add yroot adb
+
+commit b34c63dce7a7d24523d34c812130a5bd04e1ebaa
+Author: ubuntu <ubuntu@test-10>
+Date:   Fri Dec 25 19:03:06 2015 +0800
+
+    delete .gitignore
+
+commit 82c1a346c5a7da09a15b9edda21727d90b27e2f2
+Author: ubuntu <ubuntu@test-10>
+Date:   Fri Dec 25 19:00:38 2015 +0800
+
+    add some ginore files
+
+commit cd2536ecdf6a8fe1d6f8a9e440c6fe4fba63f9cb
+Author: ubuntu <ubuntu@test-10>
+Date:   Fri Dec 25 17:56:53 2015 +0800
+
+    remove setenv.sh
+
+commit 59cda33de7faa3c9d7ec7c54abd4624a36a64c1f
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Dec 25 17:39:11 2015 +0800
+
+    detete test file
+
+commit f35f003b75e6902e76a9af5f678f7ae28a9abdd3
+Merge: 4b611d8 6f89cf2
+Author: by-reason <qweyzh@126.com>
+Date:   Fri Dec 25 17:33:13 2015 +0800
+
+    Merge branch 'master' of 192.168.1.30:/home/ubuntu/Source/Source_code_501/s508_code
+
+commit 6f89cf229da7f8f26fad1e979e0d769e247ac634
+Author: liuchangfa <290586299@qq.com>
+Date:   Fri Dec 25 17:22:37 2015 +0800
+
+    add a test file
+
+commit 4b611d8f1eca2902e21c7717bb108fa288ff20e0
+Author: by-reason <qweyzh@126.com>
+Date:   Fri Dec 25 16:44:13 2015 +0800
+
+    add setenv.sh
+
+commit 0428eeef641bfb9c1f21438a222aa18ab77d23b9
+Author: ubuntu <ubuntu@test-10>
+Date:   Tue Dec 22 16:07:14 2015 +0800
+
+    modify some flies
+
+commit 722242a3ee754154b8eefce3b91c837781c8ab10
+Author: ubuntu <ubuntu@test-10>
+Date:   Thu Dec 17 18:37:00 2015 +0800
+
+    add some files to source code
+
+commit 1c38125751e2d824591da5aac57e2c73b08c3fc5
+Author: ubuntu <ubuntu@test-10>
+Date:   Thu Dec 17 14:33:19 2015 +0800
+
+    first create source code
