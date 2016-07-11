@@ -1,2 +1,0 @@
-1 常用调试技巧
-	Toast.makeText(getActivity(), "liuchangfa", Toast.LENGTH_SHORT).show();
