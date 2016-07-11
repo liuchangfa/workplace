@@ -56,6 +56,9 @@ git相关：
 屏蔽wifi 5G信号：
 vendor/mediatek/proprietary/custom/br6735m_65u_s_l1/cgen/cfgdefault/CFG_WIFI_Default.h
 
+用img文件通过模拟器启动系统：
+emulator -system out/target/product/generic/system.img -data out/target/product/generic/userdata.img -ramdisk out/target/product/generic/ramdisk.img
+
 
 
 
