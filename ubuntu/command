@@ -60,6 +60,22 @@ vendor/mediatek/proprietary/custom/br6735m_65u_s_l1/cgen/cfgdefault/CFG_WIFI_Def
 emulator -system out/target/product/generic/system.img -data out/target/product/generic/userdata.img -ramdisk out/target/product/generic/ramdisk.img
 
 
+权限配置：
+	建立用户：sudo adduser --home /home/xxx xxx
+	配置权限：sudo chmod 750 /home/xxx -R
+	修改密码：sudo passwd xxx
+配置windows访问：
+	修改配置文件：sudo vim /etc/samba/smb.conf
+	设置修改密码：sudo smbpasswd -a xxx
+	重启服务生效：sudo service smbd restart
+清除共享登录信息：
+	查看已有远程连接：net use
+	清除共享登录信息：net use * /del
+
+	
+
+
+
 
 
 

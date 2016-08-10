@@ -1,4 +1,4 @@
-package com.example.herman.summary.PictureProcess;
+package com.herman.summary.common.method.pictureprocess;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -11,10 +11,10 @@ import android.os.Environment;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.    IOException;
 
 /**
- * Created by Administrator on 2016/5/19.
+ * Created by liuchangfa on 2016/5/19.
  */
 public class PictureProcess
 {

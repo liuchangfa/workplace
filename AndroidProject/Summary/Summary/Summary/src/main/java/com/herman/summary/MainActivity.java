@@ -1,7 +1,9 @@
-package com.example.herman.summary;
+package com.herman.summary;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.herman.summary.action.method.nvram.NVRAM;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -11,5 +13,7 @@ public class MainActivity extends AppCompatActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		NVRAM.WriteData(NVRAM.NVRAM_FILE_LID);
+		NVRAM.ReadData(NVRAM.NVRAM_FILE_LID);
 	}
 }
