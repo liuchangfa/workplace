@@ -1,3 +1,7 @@
+/**
+ * Created by liuchangfa on 2016/5/19.
+ */
+
 package com.herman.summary.common.method.pictureprocess;
 
 import android.graphics.Bitmap;
@@ -11,11 +15,8 @@ import android.os.Environment;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.    IOException;
+import java.io.IOException;
 
-/**
- * Created by liuchangfa on 2016/5/19.
- */
 public class PictureProcess
 {
 
@@ -61,7 +62,6 @@ public class PictureProcess
 
 	/**
 	 * 将Bitmap存为 .bmp格式图片
-	 *
 	 * @param bitmap
 	 */
 	private void saveBmp(Bitmap bitmap)
