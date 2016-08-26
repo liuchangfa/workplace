@@ -76,6 +76,9 @@ git相关：
 	设置远程仓库git remote set-url origin  git@192.168.1.18:/home/yunnex/Project/Vpos_Z3/Source/s508_code.git
 	添加源：git remote add origin git@192.168.1.18:/home/yunnex/Project/Vpos_Z3/Source/s508_code.git
 
+源码建仓上传注意事项：
+	.gitignore文件有隐藏项，上传前把此文件都重命名。
+
 gitolite权限管理与配置：
 	ssh公钥：
 		1.SSH 公钥默认储存在账户的主目录下的 ~/.ssh 目录，如果没有用ssh-keygen 来创建
@@ -114,7 +117,31 @@ gitolite权限管理与配置：
 		1.把目标用户的公钥添加到keydir下，并重命名为该用户的用户名.pub
 		2.配置conf/gitolite.conf
 		3.保存提交生效
+
+SElinux
+	一，TEAC：针对Type或Domain
+	策略书写规范：rule_name source_type target_type : class perm_set
 		
+		(1) perm_set:	定义路径：external/sepolicy/access_vectors
+		(2) class   :	定义路径：external/sepolicy/security_classes
+		(3) type    :   target_type，source_type都属于type，
+				#定义type命令的完整格式为：type type_id [alias alias_id,] [attribute_id]，参考：external/sepolicy/attributes
+		(4) rule_name:	一共四种：
+				allow：赋予某项权限
+				allowaudit：记录对权限检查失败和成功的操作
+				dontaudit：对那些权限检查失败的操作不做记录
+				neverallow：检查安全策略文件中是否有违反该项规则的allow语句
 
 	
+	二，RBAC：针对user和role的安全策略
+		(1) Role定义：external/sepolicy/roles
+		(2) user定义：external/sepolicy/users
+		(3) 权限控制：constrain标准格式：constrain object_class_set perm_set expression ;
+			 #下面这句话表示只有source和target的user相同，并且role也相同，才允许write object_class为file的东东
+				constrain file write (u1 == u2 and r1 == r2) ;
+		*(4) constrain是对TEAC的加强。因为TEAC仅针对Type或Domain，没有针对user和role的，所以constrain在TEAC的基础上，进一步加强了权限控制。在实际使用过程中，SELinux进行权限检查时，先检查TE是否满足条件，然后再检查constrain是否也满足条件。二者都通过了，权限才能满足
+		
+
+
+
 
