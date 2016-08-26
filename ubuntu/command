@@ -54,6 +54,8 @@ vendor/mediatek/proprietary/custom/br6735m_65u_s_l1/cgen/cfgdefault/CFG_WIFI_Def
 用img文件通过模拟器启动系统：
 emulator -system out/target/product/generic/system.img -data out/target/product/generic/userdata.img -ramdisk out/target/product/generic/ramdisk.img
 
+vim常用命令
+	复制多行：将光标移到需要复制的起始位置按shift v，光标下移，在结束处按y，最后将光标移到需要粘贴的地方按p
 
 权限配置：
 	建立用户：sudo adduser --home /home/xxx xxx
@@ -61,6 +63,13 @@ emulator -system out/target/product/generic/system.img -data out/target/product/
 	修改密码：sudo passwd xxx
 配置windows访问：
 	修改配置文件：sudo vim /etc/samba/smb.conf
+					[lcf]
+					comment = lcf share directory
+					path = /home/lcf
+					browseable = yes
+					writable = yes
+					guest ok = yes
+					valid users = lcf
 	设置修改密码：sudo smbpasswd -a xxx
 	重启服务生效：sudo service smbd restart
 清除共享登录信息：
