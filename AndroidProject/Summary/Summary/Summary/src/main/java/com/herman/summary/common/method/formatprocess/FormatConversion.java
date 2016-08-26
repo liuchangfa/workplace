@@ -1,8 +1,9 @@
-package com.herman.summary.common.method.formatprocess;
-
 /**
  * Created by liuchangfa on 2016/8/5.
  */
+
+package com.herman.summary.common.method.formatprocess;
+
 public class FormatConversion
 {
 
@@ -30,7 +31,7 @@ public class FormatConversion
 
 
 	/**
-	 * 将byte转化为两位long
+	 * 将16位byte数组转化为两位long
 	 */
 	public static long[] byteToLong(byte[] b)
 	{
