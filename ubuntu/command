@@ -61,6 +61,7 @@ vim常用命令
 	建立用户：sudo adduser --home /home/xxx xxx
 	配置权限：sudo chmod 750 /home/xxx -R
 	修改密码：sudo passwd xxx
+	注意：不要随意更改用户名，如果非要修改，出现创建一个用户，否则会出现很多不可预知的问题(权限)
 配置windows访问：
 	修改配置文件：sudo vim /etc/samba/smb.conf
 					[lcf]
