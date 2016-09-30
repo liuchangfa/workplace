@@ -161,6 +161,46 @@ SElinux
 			 #下面这句话表示只有source和target的user相同，并且role也相同，才允许write object_class为file的东东
 				constrain file write (u1 == u2 and r1 == r2) ;
 		*(4) constrain是对TEAC的加强。因为TEAC仅针对Type或Domain，没有针对user和role的，所以constrain在TEAC的基础上，进一步加强了权限控制。在实际使用过程中，SELinux进行权限检查时，先检查TE是否满足条件，然后再检查constrain是否也满足条件。二者都通过了，权限才能满足
+
+
+ubuntu16.04配置android编译环境
+	1、安装openjdk-7-jdk 
+		sudo add-apt-repository ppa:openjdk-r/ppa
+		sudo apt-get update
+		sudo apt-get install openjdk-7-jdk
+		配置环境变量
+			export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
+			export JRE_HOME=${JAVA_HOME}/jre
+			export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+			export PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin:$PATH:$BIN_PATH
+
+	2、安装make3.8.1/2
+		1、下载make-3.81.tar.bz2  下载地址:http://ftp.gnu.org/gnu/make/
+		2、解压 tar -xvf make-3.81.tar.bz2
+		3、编译安装 ./configure   ; sudo make install,执行make -version查看版本
+		4、如果不生效，手动配置：export PATH=/你的make路径/make-3.81:$PATH
+
+	3、gcc/g++版本需要从5.x降级至4.8.4
+	    设置方法：
+		sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 80(优先级)
+		sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 80(优先级)
+	    如果想删除可选项的话可以键入以下指令：
+		sudo update-alternatives --remove gcc /usr/bin/gcc-4.8	
+
+
+	##编译错误
+	#1、make: *** [out/host/linux-x86/obj32/lib/libcompiler_rt.so] Error 1
+		解决方法：在android源码文件下art/build/Android.common_build.mk这个文件中找到
+			# Host.
+			ART_HOST_CLANG := false
+			ifneq ($(WITHOUT_HOST_CLANG),true)
+				# By default, host builds use clang for better warnings.
+				ART_HOST_CLANG := true
+			endif
+			修改部分： 1. WITHOUT_HOST_CLANG false>true 2. ART_HOST_CLANG false>true
+
+	#2、make: *** [/aosp/out/host/linux-x86/obj/lib/libc++.so] Error 1
+		解决方法：cp /usr/bin/ld.gold prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld
 		
 
 
