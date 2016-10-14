@@ -10,6 +10,8 @@
 		du -sk * | sort -n
 		du -sk * | grep guojf //看一个人的大小
 		du -m | cut -d “/” -f 2 //看第二个/ 字符前的文字
+	忘记用户密码方法：
+		进入到任何一个可执行sudo权限的用户，然后执 sudo passwd "username"修改密码
 
 制作开机动画：
 	zip -0 bootanimation.zip part0/*png part1/*png desc.txt
@@ -58,7 +60,8 @@
 vendor/mediatek/proprietary/custom/br6735m_65u_s_l1/cgen/cfgdefault/CFG_WIFI_Default.h
 
 用img文件通过模拟器启动系统：
-emulator -system out/target/product/generic/system.img -data out/target/product/generic/userdata.img -ramdisk out/target/product/generic/ramdisk.img
+	emulator -system out/target/product/generic/system.img -data out/target/product/generic/userdata.img -ramdisk out/target/product/generic/ramdisk.img
+	如果提示内存大小问题，加上参数：emulator -partition-size 1024
 
 vim常用命令
 	复制多行：将光标移到需要复制的起始位置按shift v，光标下移，在结束处按y，最后将光标移到需要粘贴的地方按p
@@ -94,6 +97,10 @@ git相关：
         将某个文件恢复到特定版本：git reset log 文件/目录
 	设置远程仓库git remote set-url origin  git@192.168.1.18:/home/yunnex/Project/Vpos_Z3/Source/s508_code.git
 	添加源：git remote add origin git@192.168.1.18:/home/yunnex/Project/Vpos_Z3/Source/s508_code.git
+	查看分支图：
+	    1、通过下列命令在git config文件里面设置别名。
+			git config --global alias.lg "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+		2、然后通过命令 git lg 来列出分支图
 
 源码建仓上传注意事项：
 	.gitignore文件有隐藏项，上传前把此文件都重命名。
@@ -136,6 +143,7 @@ gitolite权限管理与配置：
 		1.把目标用户的公钥添加到keydir下，并重命名为该用户的用户名.pub
 		2.配置conf/gitolite.conf
 		3.保存提交生效
+		4.用户的添加只和访问客户端秘钥有关，秘钥的名称可以用username.pub username@host.pub或其它方式命名，配置文件可以将用户名一样但秘钥不同的用户归为同一用户组，方便管理
     注意：
 	    1.如果在git用户下需要同步仓库，直接加上文件路径(repositories/MT6737_Benchmark.git)就可以，不需要加上全路径(git@gitserver:MT6737_Benchmark.git.git)
 
@@ -202,7 +210,6 @@ ubuntu16.04配置android编译环境
 	#2、make: *** [/aosp/out/host/linux-x86/obj/lib/libc++.so] Error 1
 		解决方法：cp /usr/bin/ld.gold prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld
 		
-
 
 
 
