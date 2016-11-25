@@ -3,6 +3,7 @@
 	批量修改文件扩展名：find ./ -name ".gitignore" | xargs -t -i  mv {} {}.back
 	查找字符：find . -name "*.mk" | xargs grep "TouchPal"
 	查找文件并删除：find . -name "*.mk" | xargs rm -rf
+	删除带有数字的行：cat xx.txt | egrep "^[a-zA-Z ]" > xxx.txt
 	查找当前目录及子目录下文件(包含隐藏文件)个数：find ./ -type f | wc -l
 	查看文件大小：
 		du -sh xmldb/ 统计总数大小
@@ -73,6 +74,7 @@ vim常用命令
 	删除用户：sudo userdel -r xxx
 	注意：不要随意更改用户名，如果非要修改，出现创建一个用户，否则会出现很多不可预知的问题(权限)
 配置windows访问：
+    安装samba:    sudo apt-get install samba samba-common
 	修改配置文件：sudo vim /etc/samba/smb.conf
 					[lcf]
 					comment = lcf share directory
@@ -210,6 +212,22 @@ ubuntu16.04配置android编译环境
 	#2、make: *** [/aosp/out/host/linux-x86/obj/lib/libc++.so] Error 1
 		解决方法：cp /usr/bin/ld.gold prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld
 		
+
+
+redmine
+-------------------------------------------------------------------------------------------------------------------
+安装路径 192.168.1.18:/opt/
+日志路径 1、 /opt/redmine-3.3.0-1/apps/redmine/htdocs/log
+         2、 /var/log/redmine/default
+常见错误
+         1、windows无法访问
+		    解决方法：切换到root用户，重启redmine服务：./ctlscript.sh restart
+
+-------------------------------------------------------------------------------------------------------------------
+android studio 之NDK开发
+1、编写好java文件
+2、编译生成class文件
+3、生成.h文件：javah -d jni -classpath ../../build/intermediates/classes/debug com.vpos.securitycommunmodule.serialport.SerialPort
 
 
 
