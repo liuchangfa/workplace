@@ -157,6 +157,16 @@ gitolite权限管理与配置：
 	    1.如果在git用户下需要同步仓库，直接加上文件路径(repositories/MT6737_Benchmark.git)就可以，不需要加上全路径(git@gitserver:MT6737_Benchmark.git.git)
 
 		
+	新增项目：
+		1.新建文件夹：        mkdir c1_mt6737_dev
+		2.新建git ：          git init
+		3.解压项目：          tar -zxvf Z6.tar.gz  -C c1_mt6737_dev/
+		4.删除原有项目.git ： rm -rf .git/
+		5.重命名.gitignore :  find ./ -name ".gitignore" | xargs -t -i  mv {} {}.back
+		6.添加缓存：          git add .
+		7.修改/添加源：       git remote add origin git@192.168.1.18:c1_mt6737_dev.git
+		8.提交项目：          git commit -m "create c1_mt6737_dev progect"
+		9.push到服务器：      git push origin master
 -------------------------------------------------------------------------------------------------------------------
 SElinux
 	一，TEAC：针对Type或Domain
@@ -267,3 +277,5 @@ Z5修改记录
 	lunch  tx6737m_35g_xz_m0	
 	make  update-api
 	make -j8 2>&1 | tee build.log
+	
+	
