@@ -5,6 +5,10 @@
 	查找文件并删除：find . -name "*.mk" | xargs rm -rf
 	删除带有数字的行：cat xx.txt | egrep "^[a-zA-Z ]" > xxx.txt
 	查找当前目录及子目录下文件(包含隐藏文件)个数：find ./ -type f | wc -l
+	解压tar.gz： 
+	     加上路径：tar -zxvf archive_name.tar.gz -C /tmp/extract_here/
+		 不加路径：tar -zxvf archive_name.tar.gz
+    手动挂载硬盘:sudo mount -t ntfs /dev/sdc1 /mnt/
 	查看文件大小：
 		du -sh xmldb/ 统计总数大小
 		du -sm * | sort -n //统计当前目录大小 并安大小 排序
@@ -17,6 +21,7 @@
 制作开机动画：
 	zip -0 bootanimation.zip part0/*png part1/*png desc.txt
 
+-------------------------------------------------------------------------------------------------------------------
 系统升级相关：
 	编译全量包，同时生产中间文件：make otapackage
 	压缩：zip -qry ../B.zip .
@@ -64,9 +69,11 @@ vendor/mediatek/proprietary/custom/br6735m_65u_s_l1/cgen/cfgdefault/CFG_WIFI_Def
 	emulator -system out/target/product/generic/system.img -data out/target/product/generic/userdata.img -ramdisk out/target/product/generic/ramdisk.img
 	如果提示内存大小问题，加上参数：emulator -partition-size 1024
 
+-------------------------------------------------------------------------------------------------------------------
 vim常用命令
 	复制多行：将光标移到需要复制的起始位置按shift v，光标下移，在结束处按y，最后将光标移到需要粘贴的地方按p
 
+-------------------------------------------------------------------------------------------------------------------
 权限配置：
 	建立用户：sudo adduser --home /home/xxx xxx
 	配置权限：sudo chmod 750 /home/xxx -R
@@ -91,7 +98,7 @@ vim常用命令
 配置用户sudo执行权限：
 	sudo vim  /etc/sudoers 添加  lcf  ALL=(ALL:ALL) ALL
 	
-=============================================================================================
+-------------------------------------------------------------------------------------------------------------------
 git相关：
 	修改.git所属者：sudo chown -R  ubuntu:ubuntu s508_code.git
         查看某个文件的log记录：git log --pretty=oneline 文件
@@ -149,6 +156,8 @@ gitolite权限管理与配置：
     注意：
 	    1.如果在git用户下需要同步仓库，直接加上文件路径(repositories/MT6737_Benchmark.git)就可以，不需要加上全路径(git@gitserver:MT6737_Benchmark.git.git)
 
+		
+-------------------------------------------------------------------------------------------------------------------
 SElinux
 	一，TEAC：针对Type或Domain
 	策略书写规范：rule_name source_type target_type : class perm_set
@@ -172,7 +181,7 @@ SElinux
 				constrain file write (u1 == u2 and r1 == r2) ;
 		*(4) constrain是对TEAC的加强。因为TEAC仅针对Type或Domain，没有针对user和role的，所以constrain在TEAC的基础上，进一步加强了权限控制。在实际使用过程中，SELinux进行权限检查时，先检查TE是否满足条件，然后再检查constrain是否也满足条件。二者都通过了，权限才能满足
 
-
+-------------------------------------------------------------------------------------------------------------------
 ubuntu16.04配置android编译环境
 	1、安装openjdk-7-jdk 
 		sudo add-apt-repository ppa:openjdk-r/ppa
@@ -221,13 +230,40 @@ redmine
          2、 /var/log/redmine/default
 常见错误
          1、windows无法访问
-		    解决方法：切换到root用户，重启redmine服务：./ctlscript.sh restart
+		    解决方法：切换到root用户，重启redmine服务：./opt/redmine-3.3.0-1/ctlscript.sh restart
 
 -------------------------------------------------------------------------------------------------------------------
 android studio 之NDK开发
 1、编写好java文件
-2、编译生成class文件
-3、生成.h文件：javah -d jni -classpath ../../build/intermediates/classes/debug com.vpos.securitycommunmodule.serialport.SerialPort
+2、编译生成class文件，路径build/intermediates/classes/debug
+3、生成.h文件,在src/main/目录下执行：javah -d jni -classpath ../../build/intermediates/classes/debug com.vpos.securitycommunmodule.serialport.SerialPort
+4、编写c文件
+6、配置build.gradle，并添加属性文件gradle.properties
+5、编译整个过程验证
+
+测试调试用
+-------------------------------------------------------------------------------------------------------------------
+开启mktlog：
+	adb shell am broadcast -a com.mediatek.mtklogger.ADB_CMD -e cmd_name stop --ei cmd_target 1
+
+-------------------------------------------------------------------------------------------------------------------
+问题记录：
+1、PATH路径重复设置问题，
 
 
+Z5修改记录
+-------------------------------------------------------------------------------------------------------------------
+已修改文件
+串口权限：system/core/rootdir/init.rc
+节点权限(ttyGS0/1)：device/testdd/testdd6737m_35g_m0/init.project.rc
+关闭selinux：system/core/init/init.cpp
+开发设备节点访问权限：
+	device/mediatek/common/sepolicy/file.te
+	device/mediatek/common/sepolicy/file_contexts            
+	device/mediatek/common/sepolicy/untrusted_app.te
 
+编译项目：
+	source build/envsetup.sh 
+	lunch  tx6737m_35g_xz_m0	
+	make  update-api
+	make -j8 2>&1 | tee build.log
