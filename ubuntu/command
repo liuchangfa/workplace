@@ -277,5 +277,21 @@ Z5修改记录
 	lunch  tx6737m_35g_xz_m0	
 	make  update-api
 	make -j8 2>&1 | tee build.log
+	nohup make otapackage -j8  &
+	
+服务器gradle编译工程命令
+	./gradlew build
+	
+	
+工作交接相关	
+-------------------------------------------------------------------------------------------------------------------
+打印相关：
+	1、打印测试demo路径：svn://svn.yunnex.com/dev/VPosSystemZ3/VPos/VposNodePrintTest
+	2、Z5打印SDK开发路径：svn://svn.yunnex.com/dev/VPayBranch/VPayPrintZ5
+源码编译：
+	1、Z5原始系统路径：git@192.168.1.18:z5_mt6737_raw.git
+	2、Z5开发版本路径：git@192.168.1.18:z5_mt6737_dev.git
+	3、C1原始系统路径：git@192.168.1.18:c1_mt6737m_raw.git
+	4、C2开发版本路径：git@192.168.1.18:c1_mt6737m_dev.git
 	
 	
