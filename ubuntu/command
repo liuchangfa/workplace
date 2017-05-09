@@ -9,6 +9,7 @@
 	     加上路径：tar -zxvf archive_name.tar.gz -C /tmp/extract_here/
 		 不加路径：tar -zxvf archive_name.tar.gz
     手动挂载硬盘:sudo mount -t ntfs /dev/sdc1 /mnt/
+	             服务器挂载：sudo mount 192.168.1.222:/volume1/终端  /home/yunnex/mount
 	查看文件大小：
 		du -sh xmldb/ 统计总数大小
 		du -sm * | sort -n //统计当前目录大小 并安大小 排序
@@ -191,6 +192,16 @@ SElinux
 				constrain file write (u1 == u2 and r1 == r2) ;
 		*(4) constrain是对TEAC的加强。因为TEAC仅针对Type或Domain，没有针对user和role的，所以constrain在TEAC的基础上，进一步加强了权限控制。在实际使用过程中，SELinux进行权限检查时，先检查TE是否满足条件，然后再检查constrain是否也满足条件。二者都通过了，权限才能满足
 
+	*Selinux在线调试
+		log输出：cat /proc/kmsg | grep avc
+		查看进程类型：ps -Z
+		查看权限配置：ls -al -Z
+	
+	*Selinux编译
+		mmm device/mediatek/common/sepolicy(MTK平台无法直接编译，没有.mk文件)
+		make -j8 ramdisk-nodeps
+		make -j8 bootimage-nodeps
+	
 -------------------------------------------------------------------------------------------------------------------
 ubuntu16.04配置android编译环境
 	1、安装openjdk-7-jdk 
@@ -228,7 +239,7 @@ ubuntu16.04配置android编译环境
 			endif
 			修改部分： 1. WITHOUT_HOST_CLANG false>true 2. ART_HOST_CLANG false>true
 
-	#2、make: *** [/aosp/out/host/linux-x86/obj/lib/libc++.so] Error 1
+	#2、make: *** [/aosp/out/host/linux-x86/obj/lib/libc++.so] Error 1  
 		解决方法：cp /usr/bin/ld.gold prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.6/x86_64-linux/bin/ld
 		
 
@@ -255,6 +266,9 @@ android studio 之NDK开发
 -------------------------------------------------------------------------------------------------------------------
 开启mktlog：
 	adb shell am broadcast -a com.mediatek.mtklogger.ADB_CMD -e cmd_name stop --ei cmd_target 1
+	
+monkey测试
+	 monkey -p com.mediatek.factorymode -v 1000
 
 -------------------------------------------------------------------------------------------------------------------
 问题记录：
@@ -294,4 +308,16 @@ Z5修改记录
 	3、C1原始系统路径：git@192.168.1.18:c1_mt6737m_raw.git
 	4、C2开发版本路径：git@192.168.1.18:c1_mt6737m_dev.git
 	
-	
+
+杂记	
+-------------------------------------------------------------------------------------------------------------------
+wifi密码
+	yunnex-zd	Yunnex@@@@5678#
+	yunnex-ap   Yunnex2016
+Z5模拟SN号
+	358511020000035  864212016021822
+终端
+	192.168.9.18服务器  zd zdxt2017
+	文件加密密码： 3504710444
+86260201800
+
